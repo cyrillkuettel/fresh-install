@@ -11,3 +11,7 @@ manage the ssh keys would be nice. generate one in .ssh automatically. You can c
 
 I'm going to have to make multiple versions, for different distributions probably.
 
+
+jdk from switch drive https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F01_jdk_11.0&files=jdk-11.0.13_linux-x64_bin.tar.gz
+
+
