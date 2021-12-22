@@ -1,0 +1,13 @@
+Well there are the basics
+By the way I will test if this script works in a virtual box. 
+
+git
+jdk setup: get from https://github.com/rgisler/ubuntu-oraclejdk-8/blob/master/Dockerfile
+
+android studio
+intellij: both the same process, extract the tar.gz and unzip to 
+could get the useful information 
+manage the ssh keys would be nice. generate one in .ssh automatically. You can check this from github. The key can probably be added programmatically to github, I have to reasearch this. 
+
+I'm going to have to make multiple versions, for different distributions probably.
+
