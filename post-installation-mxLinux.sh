@@ -6,8 +6,18 @@ wget https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F01_jdk
 tar -xzf jdk-11.0.13_linux-x64_bin.tar.gz
 sudo mv jdk-11.0.13 /usr/lib/jvm
 
+
 # TODO: Add JAVA_HOME stuff: copy from my computer
+# Maven
 wget https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F10_maven&files=apache-maven-3.8.4-bin.tar.gz
+
+
+
+# Pycharm
+wget -O pycharm.tar.gz https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F73_pycharm&files=pycharm-community-2021.2.3.tar.gz
+tar -xzf pycharm.tar.gz
+sudo mv pycharm-2021.3  /opt/
+./opt/pycharm-2021.3/bin/pycharm.sh
 
 #Docker
 wget -O docker.gpg  https://download.docker.com/linux/debian/gpg
