@@ -9,6 +9,17 @@ sudo mv jdk-11.0.13 /usr/lib/jvm
 # TODO: Add JAVA_HOME stuff: copy from my computer
 wget https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F10_maven&files=apache-maven-3.8.4-bin.tar.gz
 
+#Docker
+wget -O docker.gpg  https://download.docker.com/linux/debian/gpg
+gpg   --keyid-format 0xlong docker.gpg 2>/dev/null
+gpg  --keyid-format 0xlong docker.gpg 2>/dev/null | grep -sq 0x8D81803C0EBFCD88 && sudo apt-key add docker.gpg
+CODENAME=buster
+echo "deb [arch=amd64] https://download.docker.com/linux/debian $CODENAME stable" | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt update
+sudo apt install docker-ce
+sudo docker run hello-world
+sudo groupadd docker
+sudo usermod -aG docker $USER
 
 mkdir ~/.ssh
 cd ~/.ssh
