@@ -40,5 +40,5 @@ sudo dpkg -i lsd_0.20.1_amd64.deb
 
 sudo apt-get install vim-gui-common
 sudo apt-get install vim-runtime
-
+sudo apt install vim
 
