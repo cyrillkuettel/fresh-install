@@ -38,4 +38,7 @@ wget https://github.com/Peltoche/lsd/releases/download/0.20.1/lsd-musl_0.20.1_am
 sudo dpkg -i lsd_0.20.1_amd64.deb
 # TODO: add to bashrc: alias ls='lsd -Fl'
 
+sudo apt-get install vim-gui-common
+sudo apt-get install vim-runtime
+
 
