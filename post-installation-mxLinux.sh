@@ -17,7 +17,7 @@ wget https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F10_mav
 wget -O pycharm.tar.gz https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F73_pycharm&files=pycharm-community-2021.2.3.tar.gz
 tar -xzf pycharm.tar.gz
 sudo mv pycharm-2021.3  /opt/
-./opt/pycharm-2021.3/bin/pycharm.sh
+bash /opt/pycharm-2021.3/bin/pycharm.sh
 
 #Docker
 wget -O docker.gpg  https://download.docker.com/linux/debian/gpg
