@@ -50,7 +50,7 @@ sudo dpkg -i lsd_0.20.1_amd64.deb
 
 
 sudo apt install vim
-
+sudo apt install ffmpeg x264 x265 # this is used for example so that youtube-dl can produce mp3s
 # install conda
 cd
 mkdir -p ~/miniconda3
