@@ -61,3 +61,6 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ~/miniconda3/bin/conda init bash
+
+# if you want to debug native process in android studio. If this is not installed it will result in a crash when running the debugger on a ndk project. 
+sudo apt install libncurses5
