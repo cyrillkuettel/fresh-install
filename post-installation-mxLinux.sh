@@ -72,6 +72,9 @@ cd ~/Downloads
 wget https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-linux-amd64-v3.0.2.tar.gz -O git-lfs.tar.gz
 mkdir git-lfs
 tar -xzf git-lfs.tar.gz -C ./git-lfs
+cd git-lfs
+rm -rf ~/Downloads/git-lfs.tar.gz
+sudo ./install.sh
 
 
 
