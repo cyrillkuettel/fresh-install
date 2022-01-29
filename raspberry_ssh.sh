@@ -95,4 +95,10 @@ sudo ufw allow OpenSSH
 sudo ufw enable #IMPORTANT
 sudo ufw status verbose
 
+# Startup
+sudo setxkbmap ch
+sudo crontab -e
+# Here you can option, for example @reboot     /home/me/myscript.sh
+# You have to restart ssh if raspi reboots, This can be done like so:
+sudo service ssh restart
 
