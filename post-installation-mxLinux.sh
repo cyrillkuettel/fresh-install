@@ -53,10 +53,6 @@ sudo dpkg -i lsd_0.20.1_amd64.deb
 
 
 sudo apt install vim
-sudo mkdir /etc/vim/colors
-sudo cp *.vim /etc/vim/colors
-sudo cp ./vimrc.local /etc/vim/
-
 sudo apt install ffmpeg x264 x265 # this is used for example so that youtube-dl can produce mp3s
 # install conda
 cd
@@ -74,4 +70,10 @@ cd ~/Downloads
 wget -O git-lfs.tar.gz https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-linux-amd64-v3.0.2.tar.gz
 https://github.com/git-lfs/git-lfs/releases/download/v3.0.2/git-lfs-linux-amd64-v3.0.2.tar.gz
 
+
+# yt-dlp
+conda create -y --name yt-dlp python=3.9
+conda activate yt-dlp
+conda install pip
+pip install -U yt-dlp
 
