@@ -77,3 +77,8 @@ conda activate yt-dlp
 conda install pip
 pip install -U yt-dlp
 
+
+# Android Studio
+# TODO: Android studio installation
+
+sudo chown -R $USER:$USER /opt/android-studio
