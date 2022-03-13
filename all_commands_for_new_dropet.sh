@@ -53,3 +53,18 @@ sudo ufw status verbose
 # Useful curl commands
 curl -I -L https://yourdomain.com
 
+
+# I have also 'hardened' the sshd_conf
+# interesting post regarding this issue https://bastian.rieck.me/blog/posts/2022/server/
+# check out the brute force script kiddies:
+sudo grep "Failed password" /var/log/auth.log >> failed_attempts.log
+# can pip through wc -l to show the number of lines 
+
+sudo vim /etc/ssh/sshd_conf
+# add these lines. from the blog post
+LoginGraceTime 30 # reduces the wait time for a login to 30 seconds
+MaxAuthTries 3
+X11Forwarding no
+PrintMotd no
+
+
