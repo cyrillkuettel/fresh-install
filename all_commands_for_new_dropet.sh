@@ -57,7 +57,7 @@ curl -I -L https://yourdomain.com
 # I have also 'hardened' the sshd_conf
 # interesting post regarding this issue https://bastian.rieck.me/blog/posts/2022/server/
 # check out the brute force script kiddies:
-sudo grep "Failed password" /var/log/auth.log >> failed_attempts.log
+sudo grep "authentication failure\| Failed password" /var/log/auth.log >> failed_attempts.log
 # can pip through wc -l to show the number of lines 
 
 sudo vim /etc/ssh/sshd_conf
