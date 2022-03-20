@@ -62,9 +62,18 @@ sudo grep "authentication failure\| Failed password" /var/log/auth.log >> failed
 
 sudo vim /etc/ssh/sshd_conf
 # add these lines. from the blog post
+# notice it is _sshd_ not ssh
 LoginGraceTime 30 # reduces the wait time for a login to 30 seconds
 MaxAuthTries 3
 X11Forwarding no
 PrintMotd no
+
+# Install fail2ban for extra layer of security
+sudo apt update
+sudo apt install fail2ban
+sudo systemctl status fail2ban
+# check the jail
+sudo fail2ban-client status sshd
+
 
 
