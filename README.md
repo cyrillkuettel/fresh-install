@@ -1,4 +1,5 @@
 # fresh-install
+A collection of scripts and snippets to set up a fresh GNU/Linux installation.
 
-## vim
+### vim theme installation
 copy the vimrc to ./etc/vim/vimrc.local
