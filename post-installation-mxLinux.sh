@@ -90,3 +90,6 @@ sudo add-apt-repository ppa:linrunner/tlp
 sudo apt update
 sudo apt install tlp tlp-rdw
 sudo tlp start
+
+# gestures for laptop (install .deb package)
+https://github.com/JoseExposito/touchegg/releases
