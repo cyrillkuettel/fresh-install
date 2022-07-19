@@ -1,6 +1,6 @@
 # Kernel Upgrade related issues with Virtulbox
 
-[!Screenshot](virtualbox_kernel_driver_not_installed.png)
+![Screenshot](virtualbox_kernel_driver_not_installed.png)
 
 ```bash
 sudo apt install --reinstall virtualbox-dkms && sudo apt install libelf-dev
