@@ -1,4 +1,4 @@
-#!/bin/bash
+!#/bin/bash
 
 # This took way longer than expected
 # But now I have a receipe for setting up ssh on raspbi
