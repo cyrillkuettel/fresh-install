@@ -91,5 +91,7 @@ sudo apt update
 sudo apt install tlp tlp-rdw
 sudo tlp start
 
-# gestures for laptop (install .deb package)
-https://github.com/JoseExposito/touchegg/releases
+# LSDeluxe
+# Download latest release and install the .deb form https://github.com/Peltoche/lsd/releases
+# put this in your ~/.bashrc or ~/.zshrc
+alias ls='lsd -Fl'
