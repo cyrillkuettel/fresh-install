@@ -1,4 +1,13 @@
-! Title: uBlock-Origin-dev-filter – Google – Dev
+! No Pinterest Results on Google 
+google.*##.g:has(a[href*=".pinterest."]) 
+google.*##a[href*=".pinterest."]:nth-ancestor(1)
+
+
+google.*##.g:has(a[href*=".quora."]) 
+google.*##a[href*=".quora."]:nth-ancestor(1)
+
+
+
 ! Expires: 1 day
 ! Description: Filters to block and remove copycat-websites from search engines. Specific to dev websites like StackOverflow or GitHub.
 ! Homepage: https://github.com/quenhus/uBlock-Origin-dev-filter
