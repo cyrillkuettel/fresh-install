@@ -7,4 +7,7 @@ git config --global alias.add-commit '!git add -A && git commit'
 git add-commit -m 'My commit message'
 
 git config --global alias.adog "log --all --decorate --oneline --graph"
+# Show the diff after pulling n commits
+
+git diff HEAD~n...origin/master
 ```
