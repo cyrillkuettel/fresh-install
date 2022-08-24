@@ -124,6 +124,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+eval "$(pyenv virtualenv-init -)"
 
 # Load environment variables
 if [ -f ~/.bash_profile ]; then 
