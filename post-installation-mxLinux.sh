@@ -2,7 +2,7 @@
 
 sudo setxkbmap ch
 
-wget https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F01_jdk_11.0&files=jdk-11.0.13_linux-x64_bin.tar.gz 
+wget https://drive.switch.ch/index.php/s/nz0UdWDlSQ9ogDX/download?path=%2F01_jdk_11.0&files=jdk-11.0.13_linux-x64_bin.tar.gz
 tar -xzf jdk-11.0.13_linux-x64_bin.tar.gz
 sudo mv jdk-11.0.13 /usr/lib/jvm
 
@@ -24,14 +24,20 @@ wget -O docker.gpg  https://download.docker.com/linux/debian/gpg
 gpg   --keyid-format 0xlong docker.gpg 2>/dev/null
 gpg  --keyid-format 0xlong docker.gpg 2>/dev/null | grep -sq 0x8D81803C0EBFCD88 && sudo apt-key add docker.gpg
 CODENAME=buster
+# for mx Linux
 echo "deb [arch=amd64] https://download.docker.com/linux/debian $CODENAME stable" | sudo tee /etc/apt/sources.list.d/docker.list
+
+# forUbuntu 22.04
+CODENAME=jammy
+echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $CODENAME stable" | sudo tee /etc/apt/sources.list.d/docker.list
+
 sudo apt update
 sudo apt install docker-ce
 sudo docker run hello-world
 sudo groupadd docker
 sudo usermod -aG docker $USER
 # docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/2.10.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 mkdir ~/.ssh
@@ -64,7 +70,7 @@ rm -rf ~/miniconda3/miniconda.sh
 # don't activate conda by defaut
 conda config --set auto_activate_base false
 
-# if you want to debug native process in android studio. If this is not installed it will result in a crash when running the debugger on a ndk project. 
+# if you want to debug native process in android studio. If this is not installed it will result in a crash when running the debugger on a ndk project.
 sudo apt install libncurses5
 
 # git large file storage
