@@ -1,0 +1,2 @@
+export PATH="$PATH:/home/cyrill/zsh-plugins/diff-so-fancy"
+

@@ -17,5 +17,20 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-
 # Add powerful ls aliases to dotfile (https://github.com/Peltoche/lsd)
+
+## diff-so-fancy
+mkdir ~/zsh-plugins
+cd ~/zsh-plugins
+git clone https://github.com/so-fancy/diff-so-fancy.git
+# add the diff-so-fancy directory to $PATH (see bash_profile)
+# run the install script install_diff_so_fancy.sh, this modifies the global git config
+
+## fzf: A command-line fuzzy finder
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+# yes yes yes
+
+# finally, powerlevel10k theme
+# https://github.com/romkatv/powerlevel10k
