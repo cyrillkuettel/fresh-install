@@ -10,4 +10,14 @@ git config --global alias.adog "log --all --decorate --oneline --graph"
 # Show the diff after pulling n commits
 
 git diff HEAD~n...origin/master
+
+# or just copy the alias to ~/.gitconfig
+
+[alias]
+	adog = log --all --decorate --oneline --graph
+    whatadded = log --diff-filter=A
+    whataddedstring = "!f() { git log -S \"$1\" --source --all; }; f"
+
 ```
+
+
