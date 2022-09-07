@@ -1,0 +1,18 @@
+! No Pinterest Results on Google 
+google.*##.g:has(a[href*=".pinterest."]) 
+google.*##a[href*=".pinterest."]:nth-ancestor(1)
+
+
+! No Quora Results on Google 
+google.*##.g:has(a[href*=".quora."]) 
+google.*##a[href*=".quora."]:nth-ancestor(1)
+
+
+! I don't care about facebook 
+google.*##.g:has(a[href*="facebook."]) 
+google.*##a[href*="facebook."]:nth-ancestor(1)
+
+
+! No geeksforgeeks results on google
+google.*##.g:has(a[href*="geeksforgeeks."]) 
+google.*##a[href*="geeksforgeeks."]:nth-ancestor(1)
