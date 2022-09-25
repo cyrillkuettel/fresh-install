@@ -1,0 +1,3 @@
+[submodule "vim/vim/plugged/fzf.vim"]
+	path = vim/vim/plugged/fzf.vim
+	url = https://github.com/junegunn/vim-plug.git
