@@ -3,7 +3,10 @@
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# 1.) add the stuff to vimrc
+# 1.) cp ~/fresh-install/vim/vimrc ~/.vimrc
+# 2.) make sure you clone this wit recurse submoudle
+	mkdir -p ~/.vim/plugged
+	cp -r ~/fresh-install/vim/vim/plugged/ ~/.vim/plugged
 # 2.) run this:
 # :PluginInstall
 
