@@ -5,9 +5,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # 1.) add the stuff to vimrc
 # 2.) run this:
-
-
 # :PluginInstall
 
 # possible to also run from terminal:
 vim +PluginUpdate +qall
+
+# Commands
+# :Files  -> Get a preview of the files as you're scrolling through
+# :Rg    -> Ripgrep in vim
+# :Lines -> Super fast search inside a file
+#
