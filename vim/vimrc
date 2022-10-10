@@ -11,7 +11,9 @@ set encoding=UTF-8
 syntax on
 colorscheme monokai
 set number
-
+ 
+" re-map the escape key for leaving insert mode
+inoremap jk <ESC>
 " 2.Plugins
 "
 "	FZF.vim plugin 
