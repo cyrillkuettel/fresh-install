@@ -125,3 +125,5 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias "fyf"=fzf
+alias 'flutter run'='flutter run -d linux'
+
