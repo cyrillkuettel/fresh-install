@@ -1,0 +1,12 @@
+# In Vim's insert mode, how can you go to the end of the line and insert a newline?
+
+jko
+
+# Jump to line
+Press the ENTER key, write the Line number, and press Shift+ g”:
+-> Works with relative line numbers, count backwards 
+# Go to First line
+gg
+
+# dete between parentheses:
+dib
