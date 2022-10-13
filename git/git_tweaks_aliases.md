@@ -14,8 +14,13 @@ git diff HEAD~n...origin/master
 # or just copy the alias to ~/.gitconfig
 
 [alias]
-	adog = log --all --decorate --oneline --graph
-    whatadded = log --diff-filter=A
+    searchall = "!f() { git log --all --full-history -- \"$1^\"; }; f"
+    adog = log --all --decorate --oneline --graph
+    
+    # Show all files of a commit:
+    showfiles = "!f() { git diff-tree --no-commit-id --name-only -r \"$1\"; }; f"
+    
+    # search all history, for when a specific string was added
     whataddedstring = "!f() { git log -S \"$1\" --source --all; }; f"
 
 ```
