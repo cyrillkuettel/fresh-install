@@ -127,3 +127,10 @@ fi
 alias "fyf"=fzf
 alias 'flutter run'='flutter run -d linux'
 
+function fd() {
+	search_word=${1:4}
+	/usr/bin/fdfind -i --fixed-strings $search_word /home
+}
+
+
+
