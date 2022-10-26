@@ -1,3 +1,7 @@
- git rebase --exec 'git commit --amend --no-edit -n -S' -i --root master
+Useful oneliner to sign all commits in a repository, 
+if you forgot to set `git config commit.gpgsign true` and made some (local) commits.
+NOTE: Not recommended if you pushed changes already (rewrites history).
 
- Note: master can be a commit as well
+git rebase --exec 'git commit --amend --no-edit -n -S' -i --root master
+
+ master can be a commit as well
