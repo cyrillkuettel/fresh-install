@@ -1,2 +1,3 @@
- git rebase --exec 'git commit --amend --no-edit -n -S' -i --root <hash-from-start-commit>
+ git rebase --exec 'git commit --amend --no-edit -n -S' -i --root master
 
+ Note: master can be a commit as well
