@@ -1,0 +1,2 @@
+ git rebase --exec 'git commit --amend --no-edit -n -S' -i --root <hash-from-start-commit>
+
