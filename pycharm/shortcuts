@@ -1,4 +1,4 @@
-open settings -> kemap:
+open settings -> keymap:
 
 *Select in Project View*: New shortcut: ctrl+shift+2
 
@@ -7,3 +7,14 @@ open settings -> kemap:
 *Delete Line* becomes ctrl+<
 
 *Comment with line comment* becomes Alt+shift+Dead Grave
+
+# Adding External formatter to be invoked by keypress.
+
+
+1. Define the command, for example:
+/usr/bin/clang-format -i -style=file /home/cyrill/cyrill.gitlab/pytorch_adapter2/ios/Classes/native_opencv.cpp
+
+2. Go To Settings -> Tools -> External Tools, and add the command there
+3. Define the shortcut to it: Settings -> Keymap: Search the name you set in step 2.
+4. Set your custom keyboard shortcut, for example ctrl + alt + shift + L
+
