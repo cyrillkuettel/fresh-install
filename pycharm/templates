@@ -1,0 +1,15 @@
+Junit Test boilerplate
+
+Go to Settings -> Live Templates -> Click the plus symbol: Create new Template Group
+
+click the plus again, create a Live Template inside the group.
+Name it "test"
+
+Add following code:
+
+@org.junit.jupiter.api.Test
+void $METHOD_NAMES$(){
+$END$
+}
+
+Define 'Applicable in Java'
