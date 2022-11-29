@@ -17,6 +17,8 @@ git diff HEAD~n...origin/master
     searchall = "!f() { git log --all --full-history -- \"$1^\"; }; f"
     adog = log --all --decorate --oneline --graph
     
+	# Usage: "git f n" to to show the contents of the n'th commit, going back in time 
+    f = "!f() { git show $(git log --oneline | cut -d ' ' -f 1 | head -$1 | tail -1); }; f"
     # Show all files of a commit:
     showfiles = "!f() { git diff-tree --no-commit-id --name-only -r \"$1\"; }; f"
     
