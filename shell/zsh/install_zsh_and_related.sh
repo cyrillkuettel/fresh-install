@@ -37,3 +37,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 # finally, powerlevel10k theme
 # https://github.com/romkatv/powerlevel10k
+
+# Yanking to system clipboard
+sudo apt-get install xsel 
+git clone https://github.com/kutsan/zsh-system-clipboard ${ZSH_CUSTOM:-~/.zsh}/plugins/zsh-system-clipboard

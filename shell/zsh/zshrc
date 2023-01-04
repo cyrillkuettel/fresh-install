@@ -75,10 +75,10 @@ VIM_MODE_VICMD_KEY='jk'
 
 
 plugins=(git
-	thefuck
 	zsh-syntax-highlighting
 	zsh-autosuggestions
-	zsh-vim-mode)
+	zsh-vim-mode
+	zsh-system-clipboard)
 
 source $ZSH/oh-my-zsh.sh
 
