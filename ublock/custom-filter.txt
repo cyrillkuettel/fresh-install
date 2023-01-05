@@ -1,18 +1,25 @@
-! No Pinterest Results on Google 
+! No Pinterest Results
 google.*##.g:has(a[href*=".pinterest."]) 
 google.*##a[href*=".pinterest."]:nth-ancestor(1)
 
 
-! No Quora Results on Google 
+! No Quora Results 
 google.*##.g:has(a[href*=".quora."]) 
 google.*##a[href*=".quora."]:nth-ancestor(1)
 
 
-! I don't care about facebook 
+! Who uses facebook? It's 2023.
 google.*##.g:has(a[href*="facebook."]) 
 google.*##a[href*="facebook."]:nth-ancestor(1)
 
 
-! No geeksforgeeks results on google
+! No geeksforgeeks results
 google.*##.g:has(a[href*="geeksforgeeks."]) 
 google.*##a[href*="geeksforgeeks."]:nth-ancestor(1)
+
+
+
+! remove irrelevant Copy Cat Crap from the grepper.com
+google.*##.g:has(a[href*="grepper."]) 
+google.*##a[href*="grepper."]:nth-ancestor(1)
+
