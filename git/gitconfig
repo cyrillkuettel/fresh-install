@@ -10,5 +10,3 @@
     # Search Everything
     searchall = "!f() { git log --all --full-history -- \"$1^\"; }; f"
 
-    # search all history, for when a specific string was added
-    whataddedstring = "!f() { git log -S \"$1\" --source --all; }; f"
