@@ -1,29 +1,31 @@
-
-
 set encoding=UTF-8
+
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set autoindent
+
+set smarttab
+
+
+" Line Numbering
 set number
 set relativenumber
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set softtabstop=4
-set mouse+=a
+
+" Make it obvious where 80 characters is
+set textwidth=80
+
+set colorcolumn=+1
 
 syntax on
 colorscheme monokai
 
- " make it obivous where the 80 characcter limit is.
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-
-
-
+" re-map the escape key for leaving insert mode
 inoremap jk <ESC>
 
 " Ingore Ex mode
 map Q <Nop>
 
+" Stay in visual mode when indenting
+vnoremap < <gv
+vnoremap > >gv
