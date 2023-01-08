@@ -29,3 +29,11 @@ map Q <Nop>
 " Stay in visual mode when indenting
 vnoremap < <gv
 vnoremap > >gv
+
+" insert (static) multi-line text, calls function, which prints out the file
+nmap ^N :call Class()<CR>
+function! Class()
+    " ~/vim/cpp/rectangle.txt is the path to the template file
+    r~/.vim/dir/rectangle.txt
+endfunction
+
