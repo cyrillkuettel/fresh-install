@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='lsd -Fl'
+alias 'black'='black --line-length 79'
 
 eval $(thefuck --alias fuck)
 
