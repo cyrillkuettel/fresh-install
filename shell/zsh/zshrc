@@ -109,6 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='lsd -Fl'
 alias 'black'='black --line-length 79'
+alias 'fresh'='cd ~/fresh-install'
+alias 'yk'='xsel'
 
 eval $(thefuck --alias fuck)
 
