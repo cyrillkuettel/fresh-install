@@ -106,10 +106,8 @@ alias ls='lsd -Fl'
 # Virtualbox Ubuntu 22.04
 # Download from https://www.virtualbox.org/wiki/Linux_Downloads
 CODENAME=jammy
-
 # Add the following line to your /etc/apt/sources.list
 deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian jammy contrib
-
 # public key for verifying the signatures
 wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg
 # install
@@ -117,4 +115,5 @@ sudo apt-get update
 sudo apt-get install virtualbox-6.1
 
 
-
+xsel
+sudo apt-get install xsel
