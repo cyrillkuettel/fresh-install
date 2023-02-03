@@ -138,6 +138,8 @@ alias "fyf"=fzf  # convenient -> keyboard layout
 alias 'flutter run'='flutter run -d linux'
 alias 'fresh'='cd ~/fresh-install && git pull'
 alias 'black'='black --line-length=79'
+# cd "$(command)" to jump to result of original path of soft link Ω(Φ(X))
+alias 'src'='cd "$(readlink -f `which ~/src` | head -n 1)"'
 
 
 function fd() {
