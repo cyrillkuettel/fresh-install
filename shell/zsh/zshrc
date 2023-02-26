@@ -134,7 +134,7 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias "fyf"=fzf  # convenient -> keyboard layout
+alias "fyf"=vim $(fzf) 
 alias 'flutter run'='flutter run -d linux'
 alias 'fresh'='cd ~/fresh-install && git pull'
 alias 'black'='black --line-length=79'
