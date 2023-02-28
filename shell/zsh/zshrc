@@ -110,13 +110,14 @@ source $ZSH/oh-my-zsh.sh
 alias ls='lsd -Fl'
 alias 'black'='black --line-length 79'
 alias 'fresh'='cd ~/fresh-install'
-# clipboard means -b,
-# secondary selection is -s
+alias fyf='vim $(fzf)'
+alias o='xdg-open'
+alias fresh='cd ~/fresh-install && git pull'
+alias yk='xsel -i -b'
+alias upup='sudo apt-get update && sudo apt-get upgrade'
+alias zsh='vim ~/.zshrc && source ~/.zshrc'
 alias 'yk'='xsel -i -b'
 
-eval $(thefuck --alias fuck)
-
- 
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999 # I don't think zsh has a setting that means “infinite”, but for all practical purpose, one billion is infinite.
