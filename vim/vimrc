@@ -22,11 +22,15 @@ set scrolloff=10
 
 set clipboard+=unnamedplus
 
+" nice search visual hint
+set hlsearch
+
 syntax on
 colorscheme monokai
 
 " re-map the escape key for leaving insert mode
 inoremap jk <ESC>
+vnoremap jk <Esc>
 
 " Ingore Ex mode
 map Q <Nop>
