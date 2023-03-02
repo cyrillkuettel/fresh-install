@@ -35,12 +35,23 @@ map Q <Nop>
 vnoremap < <gv
 vnoremap > >gv
 
-" insert (static) multi-line text, calls function, which prints out the file
-nmap ^N :call Class()<CR>
-function! Class()
-    " ~/vim/cpp/rectangle.txt is the path to the template file
-    r~/.vim/dir/rectangle.txt
-endfunction
+nnoremap Y yg$
+
+" move lines up and down. 
+" In normal mode or in insert mode, press Alt-j to move the current line down, 
+" or press Alt-k to move the current line up.
+" After visually selecting a block of lines (for example, by pressing V then
+" moving the cursor down), press Alt-j to move the whole block down, or press
+" Alt-k to move the block up. from here, but this uses alt which somehow was not
+" working. 
+" https://vim.fandom.com/wiki/Moving_lines_up_or_down
+
+nnoremap <C-j> :m+<CR>==
+nnoremap <C-k> :m-2<CR>==
+inoremap <C-j> <Esc>:m+<CR>==gi
+inoremap <C-k> <Esc>:m-2<CR>==gi
+vnoremap <C-j> :m'>+<CR>gv=gv
+vnoremap <C-k> :m-2<CR>gv=gv
 
 
 
