@@ -58,4 +58,12 @@ vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
 
 
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+
+
+" Make sure you use single quotes
+Plug 'michaeljsmith/vim-indent-object'
+call plug#end()
 
