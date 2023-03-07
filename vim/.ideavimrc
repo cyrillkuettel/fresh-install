@@ -1,0 +1,35 @@
+source ~/.vimrc
+
+" SurroundWith the current selection.
+vnoremap <Space>sw :action SurroundWith<CR>
+
+set ideajoin
+set visualbell
+
+
+" tabs
+nmap <leader>h :action PreviousTab<CR>
+nmap <Space>l :action NextTab<CR>
+
+""" Idea specific settings ------------------
+" Now, you can press J  on a line or a selected block of text to join the lines together.
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+
+" Reformat the current line only
+map <leader>f V<Action>(ReformatCode)
+ " navigate to the next location
+" map <Space>o :action Forward<CR>
+" navigate to the previous location
+" map <Space>i :action Back<CR>
+
+" Map \r to the Reformat Code action
+
+
+"map \r <Action>(ReformatCode)
+
+" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
