@@ -10,7 +10,6 @@ open settings -> keymap:
 
 # Adding External formatter to be invoked by keypress.
 
-
 1. Define the command, for example:
 /usr/bin/clang-format -i -style=file /home/cyrill/cyrill.gitlab/pytorch_adapter2/ios/Classes/native_opencv.cpp
 
