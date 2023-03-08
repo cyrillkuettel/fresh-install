@@ -117,7 +117,13 @@ alias yk='xsel -i -b'
 alias upup='sudo apt-get update && sudo apt-get upgrade'
 alias zsh='vim ~/.zshrc && source ~/.zshrc'
 alias 'yk'='xsel -i -b'
-
+alias "fyf"=vim $(fzf) 
+alias 'flutter run'='flutter run -d linux'
+alias 'fresh'='cd ~/fresh-install && git pull'
+alias 'black'='black --line-length=79'
+# cd "$(command)" to jump to result of original path of soft link Ω(Φ(X))
+alias 'src'='cd "$(readlink -f `which ~/src` | head -n 1)"'
+alias sw='echo $(($(date +%U)-7))'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999 # I don't think zsh has a setting that means “infinite”, but for all practical purpose, one billion is infinite.
@@ -134,13 +140,6 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-alias "fyf"=vim $(fzf) 
-alias 'flutter run'='flutter run -d linux'
-alias 'fresh'='cd ~/fresh-install && git pull'
-alias 'black'='black --line-length=79'
-# cd "$(command)" to jump to result of original path of soft link Ω(Φ(X))
-alias 'src'='cd "$(readlink -f `which ~/src` | head -n 1)"'
 
 
 function fd() {
