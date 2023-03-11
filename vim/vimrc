@@ -22,8 +22,6 @@ set scrolloff=10
 
 set clipboard^=unnamed,unnamedplus
 
-" nice search visual hint
-set hlsearch
 
 syntax on
 colorscheme monokai
