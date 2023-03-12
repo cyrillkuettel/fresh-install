@@ -109,7 +109,6 @@ alias o='xdg-open'
 alias fresh='cd ~/fresh-install && git pull'
 alias yk='xsel -i -b'
 alias upup='sudo apt-get update && sudo apt-get upgrade'
-alias zsh='vim ~/.zshrc && source ~/.zshrc'
 alias 'yk'='xsel -i -b'
 alias 'flutter run'='flutter run -d linux'
 alias 'fresh'='cd ~/fresh-install && git pull'
@@ -117,6 +116,9 @@ alias 'black'='black --line-length=79'
 # cd "$(command)" to jump to result of original path of soft link Ω(Φ(X))
 alias 'src'='cd "$(readlink -f `which ~/src` | head -n 1)"'
 alias sw='echo $(($(date +%U)-7))'
+
+alias vz='vim ~/.zshrc && source ~/.zshrc'
+alias vv='vim ~/.vimrc'
 
 # Navigation
 function .. () { cd .. }
