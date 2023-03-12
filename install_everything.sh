@@ -11,7 +11,7 @@ git clone https://github.com/cyrillkuettel/fresh-install.git ~/
 sudo apt update
 sudo apt install ffmpeg x264 x265 
 
-sudo apt install ripgrep xsel keepassxc build-essential curl file 
+sudo apt install htop ripgrep xsel keepassxc build-essential curl file 
 
 # vim
 sudo apt install vim-gtk # I want with clipboard compiled
