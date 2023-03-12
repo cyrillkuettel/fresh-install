@@ -72,6 +72,7 @@ plugins=(git
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	zsh-vim-mode
+    zsh-autocomplete
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -116,6 +117,13 @@ alias 'black'='black --line-length=79'
 # cd "$(command)" to jump to result of original path of soft link Ω(Φ(X))
 alias 'src'='cd "$(readlink -f `which ~/src` | head -n 1)"'
 alias sw='echo $(($(date +%U)-7))'
+
+# Navigation
+function .. () { cd .. }
+function ... () { cd ../.. }
+function .... () { cd ../../.. }
+function ..... () { cd ../../../.. }
+
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999 # I don't think zsh has a setting that means “infinite”, but for all practical purpose, one billion is infinite.
