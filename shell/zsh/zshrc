@@ -123,6 +123,9 @@ alias sw='echo $(($(date +%U)-7))'
 alias vz='vim ~/.zshrc && source ~/.zshrc'
 alias vv='vim ~/.vimrc'
 
+# show print statement in pytest (don't capture STOUT)
+alias pytest='pytest -s'
+
 # Navigation
 function .. () { cd .. }
 function ... () { cd ../.. }
