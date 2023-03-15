@@ -1,5 +1,5 @@
 sudo apt install arandr  # UI wrapper around xrandr
-sudo apt install autorandr # to save work
+sudo apt install autorandr # to save monitor / display arrangement
 
  # change config and reload with i3-msg reload
 

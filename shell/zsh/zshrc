@@ -128,6 +128,10 @@ alias vv='vim ~/.vimrc'
 # show print statement in pytest (don't capture STOUT)
 alias pytest='pytest -s'
 
+# git aliases
+alias 'git diff'='git diff --ignore=*.xml' # Almost never do I care for xml files
+
+
 # Navigation
 function .. () { cd .. }
 function ... () { cd ../.. }
