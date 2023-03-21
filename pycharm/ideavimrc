@@ -17,19 +17,14 @@ nmap <Space>l :action NextTab<CR>
 
 " Reformat the current line only
 map <leader>f V<Action>(ReformatCode)
- " navigate to the next location
-" map <Space>o :action Forward<CR>
-" navigate to the previous location
-" map <Space>i :action Back<CR>
 
-" Map \r to the Reformat Code action
+" move tabs left and right
+nmap <Space>q :tabm-1 <CR>
+nmap <Space>p :tabm+1 <CR>
+
+" select everything (very useful)
+nnoremap <C-A> gg<S-v>G
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
 
-"map \r <Action>(ReformatCode)
-
-" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
 
