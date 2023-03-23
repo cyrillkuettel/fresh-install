@@ -1,5 +1,5 @@
-#!/bin/bash
 set -e
+#!/bin/bash
 
 # Provides a script to install most basic utilities assuming 
 # a new debian based linux system.
@@ -11,7 +11,8 @@ git clone https://github.com/cyrillkuettel/fresh-install.git ~/
 sudo apt update
 sudo apt install ffmpeg x264 x265 
 
-sudo apt install htop ripgrep xsel keepassxc build-essential curl file 
+sudo apt install htop ripgrep xsel keepassxc build-essential curl file xclip
+python3 python3.10-venv terminator
 
 # vim
 sudo apt install vim-gtk # I want with clipboard compiled
