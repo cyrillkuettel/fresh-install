@@ -55,6 +55,8 @@ inoremap <C-k> <Esc>:m-2<CR>==gi
 vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
 
+# select everything
+nnoremap <C-a> ggVG
 
 call plug#begin()
 " The default plugin directory will be as follows:
