@@ -58,6 +58,15 @@ vnoremap <C-k> :m-2<CR>gv=gv
 # select everything
 nnoremap <C-a> ggVG
 
+
+" For me, Vim stopped being able to copy to the * and + registers over SSH, 
+" even though :echo has('clipboard') was 1, and other X programs still worked. 
+" The solution for me was to add a mapping that yanks (via a register) to xclip:
+" It's a hack, and there surely must be a better way.
+" But in the end, who cares really?
+vnoremap <silent><Leader>y +yy <Bar> :call system('xclip', @y)<CR>
+
+
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
