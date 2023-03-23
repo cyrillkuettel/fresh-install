@@ -1,12 +1,16 @@
 sudo apt install arandr  # UI wrapper around xrandr
 sudo apt install autorandr # to save monitor / display arrangement
 
- # change config and reload with i3-msg reload
+# This needs some configuration to work:
 
- # add simlinks so that executables appear in dmenu (<MOD> + d)
+autorandr --save mobile
+autorandr --change # should automatically reaload the setup
 
+# change config and reload with `i3-msg reload`
 
- sudo ln -s /opt/bin/pycharm/pycharm.sh /usr/bin/pycharm
- sudo ln -s /opt/Zulip.AppImage /usr/bin/zulip
+# add simlinks so that executables appear in dmenu (<MOD> + d)
+
+sudo ln -s /opt/bin/pycharm/pycharm.sh /usr/bin/pycharm
+sudo ln -s /opt/Zulip.AppImage /usr/bin/zulip
 
 
