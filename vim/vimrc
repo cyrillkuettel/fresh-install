@@ -66,6 +66,9 @@ nnoremap <C-a> ggVG
 " But in the end, who cares really?
 vnoremap <silent><Leader>y +yy <Bar> :call system('xclip', @y)<CR>
 
+" I want to keep clipboard when pasting 
+xnoremap p P
+
 
 call plug#begin()
 " The default plugin directory will be as follows:
