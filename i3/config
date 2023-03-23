@@ -63,7 +63,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+# bindsym $mod+l focus up
 bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
@@ -85,7 +85,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -183,6 +183,23 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# https://i3wm.org/docs/userguide.html#_scratchpad
+# Scratchpad stuff
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Switch focus between containers in the same window
+# bindsym $mod+h focus left
+# bindsym $mod+l focus right
+
+# Use vim bindings to switch between workspaces
+bindsym $mod+h workspace prev
+bindsym $mod+l workspace next
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

@@ -6,7 +6,7 @@ sudo apt install autorandr # to save monitor / display arrangement
  # add simlinks so that executables appear in dmenu (<MOD> + d)
 
 
- sudo ln -s /opt/Zulip.AppImage /usr/bin/zulip
  sudo ln -s /opt/bin/pycharm/pycharm.sh /usr/bin/pycharm
+ sudo ln -s /opt/Zulip.AppImage /usr/bin/zulip
 
 
