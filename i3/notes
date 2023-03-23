@@ -10,7 +10,7 @@ autorandr --change # should automatically reaload the setup
 
 # add simlinks so that executables appear in dmenu (<MOD> + d)
 
-sudo ln -s /opt/bin/pycharm/pycharm.sh /usr/bin/pycharm
+sudo ln -s /opt/pycharm/bin/pycharm.sh /usr/bin/pycharm
 sudo ln -s /opt/Zulip.AppImage /usr/bin/zulip
 
 
