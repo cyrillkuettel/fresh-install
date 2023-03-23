@@ -73,6 +73,7 @@ plugins=(git
 	zsh-autosuggestions
 	zsh-vim-mode
     zsh-autocomplete
+    fzf
 	)
 
 source $ZSH/oh-my-zsh.sh
