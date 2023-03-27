@@ -135,7 +135,8 @@ workspace $ws7 output $monitor1
 
 
 workspace $ws8 output $monitor2
-workspace $ws8 output $monitor2
+# For some reason, this works not if I set explicit values for 2nd monitor..
+#  workspace $ws8 output $monitor2
 
 
 
