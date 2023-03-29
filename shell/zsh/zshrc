@@ -125,6 +125,11 @@ alias sw='echo $(($(date +%U)-7))'
 
 alias vz='vim ~/.zshrc && source ~/.zshrc'
 alias vv='vim ~/.vimrc'
+# shows the current semester week
+alias sw='echo $(($(date +%U)-7))'
+# git switch made easy
+alias gs='git switch $(git branch | fzf)'
+
 
 # show print statement in pytest (don't capture STOUT)
 alias pytest='pytest -s'
