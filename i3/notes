@@ -13,4 +13,11 @@ autorandr --change # should automatically reaload the setup
 sudo ln -s /opt/pycharm/bin/pycharm.sh /usr/bin/pycharm
 sudo ln -s /opt/Zulip.AppImage /usr/bin/zulip
 
+# This is not entirely necessary, but if your 
+# Brightness keys don't work
+sudo apt install brightnessctl
+sudo usermod -aG video ${USER}
+
+# Then add this to config (already there)
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
