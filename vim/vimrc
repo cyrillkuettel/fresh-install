@@ -22,6 +22,9 @@ set scrolloff=10
 
 set clipboard^=unnamed,unnamedplus
 
+" nice search visual hint
+set hlsearch
+
 
 syntax on
 colorscheme monokai
@@ -55,7 +58,7 @@ inoremap <C-k> <Esc>:m-2<CR>==gi
 vnoremap <C-j> :m'>+<CR>gv=gv
 vnoremap <C-k> :m-2<CR>gv=gv
 
-# select everything
+" select everything
 nnoremap <C-a> ggVG
 
 
@@ -69,11 +72,15 @@ vnoremap <silent><Leader>y +yy <Bar> :call system('xclip', @y)<CR>
 " I want to keep clipboard when pasting 
 xnoremap p P
 
+" This unsets the 'last search pattern' register by hitting return
+" https://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting
+nnoremap <CR> :noh<CR><CR>
+
+
 
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
-
 
 " Make sure you use single quotes
 Plug 'michaeljsmith/vim-indent-object'
