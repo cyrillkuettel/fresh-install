@@ -130,6 +130,17 @@ alias sw='echo $(($(date +%U)-7))'
 # git switch made easy
 alias gs='git switch $(git branch | fzf)'
 
+# shortcut to the git alias
+alias f='git f '
+
+# use the fzf command to select a file or directory 
+# and then change the current working directory to the selected path
+alias fcf='test -d "$(fzf)" || : $_:h; cd -- $_'
+
+# copy result of fzf to clipboard
+alias fff='echo $(fzf) | xsel -b'
+
+alias fof='xdg-open $(fzf)'
 
 # show print statement in pytest (don't capture STOUT)
 alias pytest='pytest -s'
