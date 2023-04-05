@@ -166,6 +166,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 
+assign [class="jetbrains-pycharm"] $ws1
+assign [class="firefox"] $ws2
 
 
 # reload the configuration file
@@ -217,7 +219,7 @@ bindsym $mod+minus scratchpad show
 # bindsym $mod+h focus left
 # bindsym $mod+l focus right
 
-# Use vim bindings to switch between workspaces
+# Use vim bindings to cycle through workspaces
 bindsym $mod+h workspace prev
 bindsym $mod+l workspace next
 
