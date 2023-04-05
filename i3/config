@@ -46,7 +46,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym F4 exec i3-sensible-terminal
+# bindsym F4 exec i3-sensible-terminal
 
 
 # kill focused window
@@ -213,7 +213,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+bindsym F4 scratchpad show
 
 # Switch focus between containers in the same window
 # bindsym $mod+h focus left
