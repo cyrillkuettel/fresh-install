@@ -12,6 +12,7 @@ sudo apt update
 sudo apt install ffmpeg x264 x265 
 
 sudo apt install -y htop ripgrep xsel keepassxc build-essential curl file xclip
+vlc 
 python3 python3.10-venv terminator fd-find
 
 ln -s $(which fdfind) ~/.local/bin/fd
