@@ -33,6 +33,9 @@ colorscheme monokai
 inoremap jk <ESC>
 vnoremap jk <Esc>
 
+" Makes sense: since I use this very frequently
+nnoremap ü A
+
 " Ingore Ex mode
 map Q <Nop>
 
