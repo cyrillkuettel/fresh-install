@@ -3,3 +3,6 @@ To clone everything in group
 
 
 for repo in $(curl -s --header "PRIVATE-TOKEN: YOUR_TOKEN_HERE" https://gitlab.enterpriselab.ch/api/v4/groups/21666 | jq -r ".projects[].ssh_url_to_repo"); do git clone $repo; done;
+
+
+docker login gitlab.enterpriselab.ch:4567
