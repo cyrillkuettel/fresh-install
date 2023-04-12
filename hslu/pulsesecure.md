@@ -11,3 +11,6 @@ sudo dpkg-reconfigure ca-certificates
 cd /opt/pulsesecure/bin/
 
 sudo ./setup_cef.sh install
+
+# run it
+./pulseUI
