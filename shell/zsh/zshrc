@@ -149,6 +149,14 @@ alias pytest='pytest -s'
 alias 'git diff'='git diff --ignore=*.xml' # Almost never do I care for xml files
 
 
+# git pull all directories depth 1
+function pullall () {
+/usr/bin/ls | xargs -P10 -I{} git -C {} pull
+}
+
+
+
+
 # Navigation
 function .. () { cd .. }
 function ... () { cd ../.. }
