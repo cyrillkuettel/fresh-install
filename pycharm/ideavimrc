@@ -1,5 +1,7 @@
 source ~/.vimrc
 
+let mapleader=" "
+
 " SurroundWith the current selection.
 vnoremap <Space>sw :action SurroundWith<CR>
 
@@ -9,7 +11,7 @@ set visualbell
 
 " tabs
 nmap <leader>h :action PreviousTab<CR>
-nmap <Space>l :action NextTab<CR>
+nmap <leader>l :action NextTab<CR>
 
 """ Idea specific settings ------------------
 " Now, you can press J  on a line or a selected block of text to join the lines together.
