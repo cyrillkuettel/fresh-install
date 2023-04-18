@@ -164,6 +164,26 @@ function .... () { cd ../../.. }
 function ..... () { cd ../../../.. }
 
 
+# grep *docx and *docm files
+docxgrep() {
+    if [[ -z $1 ]]; then
+        echo "Usage: docxgrep <keyword>"
+        return 1
+    fi
+    
+    keyword="$1"
+    
+    /usr/bin/fdfind -t f -e docx -e docm . | while read -r arg; do
+        if unzip -p "$arg" 2>/dev/null | rg -q  --ignore-case --fixed-strings "$keyword"; then
+            echo "$arg"
+        fi
+    done
+}
+
+
+
+
+
 #### Block is responsible for activating ssh agent upon login
 # We could solve this with systemd, but I prefer having all config and so on
 # and so forth in one place, the zshrc.
