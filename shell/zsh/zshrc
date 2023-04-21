@@ -155,6 +155,19 @@ function pullall () {
 }
 
 
+function gs() {
+    local selected_branch=$(git branch | fzf)
+    selected_branch="$(echo "$selected_branch" | xargs)" # handy way to remove whitespace
+
+    git switch ${selected_branch}
+    
+     if [ $? -ne 0 ]; then
+         if [ "$(git branch --show-current)" = "$selected_branch" ]; then
+              echo "Already on branch $selected_branch !"
+         fi
+     fi
+}
+
 
 
 # Navigation
