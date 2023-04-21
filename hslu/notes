@@ -1,6 +1,0 @@
-alias backbone='cd ~/g09/g09-backbone'
-alias service='cd ~/g09/g09-service'
-alias gateway='cd ~/g09/g09-gateway'
-alias docs='cd ~/g09/g09-documentation'
-alias demo='cd ~/g09/g09-demo'
-
