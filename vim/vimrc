@@ -16,14 +16,23 @@ set relativenumber
 
 " Make it obvious where 80 characters is
 set textwidth=80
-
 set colorcolumn=+1
 set scrolloff=10
-
 set clipboard^=unnamed,unnamedplus
 
 " nice search visual hint
 set hlsearch
+
+
+
+let mapleader = " "
+" I just want another mapleader. 
+" ',' will act exactly the same way as if space was pressed.
+map , <leader> 
+
+" easy search access
+nnoremap <leader>s /
+
 
 
 syntax on
@@ -34,7 +43,7 @@ inoremap jk <ESC>
 vnoremap jk <Esc>
 
 " Makes sense: since I use this very frequently
-nnoremap ü A
+nnoremap ä A
 
 " Ingore Ex mode
 map Q <Nop>
