@@ -5,6 +5,13 @@ let mapleader=" "
 " More convenient access to full text search
 nmap <leader>f :action FindInPath<CR>
 
+
+
+" Invokes BlackConect 'Reformat Selected Fragment'
+vmap <leader>b :action me.lensvol.blackconnect.actions.ReformatSelectedFragmentAction<CR>
+
+
+
 " SurroundWith the current selection.
 vnoremap <Space>sw :action SurroundWith<CR>
 
