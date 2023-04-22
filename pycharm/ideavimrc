@@ -2,6 +2,9 @@ source ~/.vimrc
 
 let mapleader=" "
 
+" More convenient access to full text search
+nmap <leader>f :action FindInPath<CR>
+
 " SurroundWith the current selection.
 vnoremap <Space>sw :action SurroundWith<CR>
 
