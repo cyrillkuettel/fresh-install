@@ -6,10 +6,8 @@ let mapleader=" "
 nmap <leader>f :action FindInPath<CR>
 
 
-
 " Invokes BlackConect 'Reformat Selected Fragment'
 vmap <leader>b :action me.lensvol.blackconnect.actions.ReformatSelectedFragmentAction<CR>
-
 
 
 " SurroundWith the current selection.
@@ -22,13 +20,6 @@ set visualbell
 " tabs
 nmap <leader>h :action PreviousTab<CR>
 nmap <leader>l :action NextTab<CR>
-
-""" Idea specific settings ------------------
-" Now, you can press J  on a line or a selected block of text to join the lines together.
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-
-" Reformat the current line only
-map <leader>f V<Action>(ReformatCode)
 
 " move tabs left and right
 nmap <Space>q :tabm-1 <CR>
