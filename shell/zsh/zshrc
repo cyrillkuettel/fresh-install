@@ -96,17 +96,12 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 #
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+
+alias 'fresh'='cd ~/fresh-install'
 alias 'black'='black --line-length=79 --skip-string-normalization'
 alias fcf='test -d "$(fzf)" || : $_:h; cd -- $_'
-alias 'fresh'='cd ~/fresh-install'
 alias fyf='vim $(fzf)'
 alias fff='echo $(fzf) | xsel -b'
 alias fof='xdg-open $(fzf)'
@@ -116,19 +111,15 @@ alias fresh='cd ~/fresh-install && git pull'
 alias yk='xsel -i -b'
 alias upup='sudo apt-get update && sudo apt-get upgrade'
 alias 'yk'='xsel -i -b'
-alias 'flutter run'='flutter run -d linux'
 alias 'fresh'='cd ~/fresh-install && git pull'
-alias 'black'='black --line-length=79'
+
 # cd "$(command)" to jump to result of original path of soft link Ω(Φ(X))
 alias 'src'='cd "$(readlink -f `which ~/src` | head -n 1)"'
+# Shows the current semester week (needs to be updated after each semester)
 alias sw='echo $(($(date +%U)-7))'
 
 alias vz='vim ~/.zshrc && source ~/.zshrc'
 alias vv='vim ~/.vimrc'
-# shows the current semester week
-alias sw='echo $(($(date +%U)-7))'
-# git switch made easy
-alias gs='git switch $(git branch | fzf)'
 
 # shortcut to the git alias
 alias f='git f '
