@@ -26,3 +26,10 @@ http://portainer.swda-g09.el.eee.intern/#!/auth
 curl http://app.g09-gateway.swda-g09.el.eee.intern/api/v1/articles/articles
 
 curl http://127.0.0.1:8090/api/v1/articles/articles
+
+# Links
+
+Mongo viewer
+http://127.0.0.1:8094/
+
+http://127.0.0.1:8094/db/swda/users
