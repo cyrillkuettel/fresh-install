@@ -52,7 +52,7 @@ curl -X PUT http://127.0.0.1:8090/api/v1/articles/64511d456069cf086eab7b16 \
 
 
 
-# Update Article in Storage
+# Create Article in Storage
 
 
 curl -X POST http://127.0.0.1:8090/api/v1/storage/ \
@@ -63,3 +63,20 @@ curl -X POST http://127.0.0.1:8090/api/v1/storage/ \
         "articleNumber": 1234,
         "price": 19.95
       }'
+
+
+
+# Update Article in Storage
+
+
+curl -X PUT http://127.0.0.1:8090/api/v1/storage/6452e013330391270a4a6968 \                      <<<
+  -H 'Content-Type: application/json' \
+  -d '{
+        "id": "6452e145e9d34e757853f464",
+        "name": "Superhammer",
+        "articleNumber": 43,
+        "price": 200.95,
+        "amount": 100
+      }'
+
+
