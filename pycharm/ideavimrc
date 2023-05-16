@@ -25,6 +25,11 @@ nmap <leader>l :action NextTab<CR>
 nmap <Space>q :tabm-1 <CR>
 nmap <Space>p :tabm+1 <CR>
 
+
+" more convenient shortcut for go to action
+nmap <leader>a :action GotoAction<CR>
+
+
 " select everything (very useful)
 nnoremap <C-A> gg<S-v>G
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
