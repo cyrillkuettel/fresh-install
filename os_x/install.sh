@@ -10,3 +10,4 @@
   brew install java
   brew install clang-format
   brew install vlc
+  brew install --cask calibre
