@@ -24,6 +24,9 @@
 
   eval "$(/usr/libexec/path_helper)"
 
+# the finder, files that begin with a . (dot) are not being shown by default
+defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder
 
-
+# manually show with 
+# Shift + Command + .
 
