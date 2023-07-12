@@ -30,3 +30,5 @@ defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder
 # manually show with 
 # Shift + Command + .
 
+# Application level volume control
+brew install --cask background-music
