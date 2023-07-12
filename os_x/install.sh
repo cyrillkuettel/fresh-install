@@ -32,3 +32,6 @@ defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder
 
 # Application level volume control
 brew install --cask background-music
+
+# previews for more video file formats
+brew install --cask qlvideo
