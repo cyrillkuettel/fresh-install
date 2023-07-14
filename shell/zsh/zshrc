@@ -218,7 +218,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=999999999 # I don't think zsh has a setting that means “infinite”, but for all practical purpose, one billion is infinite.
 SAVEHIST=$HISTSIZE
 
-
+# Prevent vim freeze acccidentally
+stty -ixon 
 
 # Load environment variables
 if [ -f ~/.bash_profile ]; then 
