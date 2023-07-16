@@ -94,3 +94,5 @@ printf 'yes\nyes\nyes\nyes' | ~/.fzf/install
 source ~/.zshrc
 
 
+# install 'black as a server' for Blackd plugin globally 
+pip install 'black[d]'
