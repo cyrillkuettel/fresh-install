@@ -43,6 +43,9 @@ cp ~/fresh-install/git/gitconfig ~/.gitconfig
 
 # Oh-my
 sudo apt install zsh -y
+# set the default shell
+chsh -s $(which zsh)
+
 # oh-my-zsh
 sudo apt install git-core curl fonts-powerline -y
 
