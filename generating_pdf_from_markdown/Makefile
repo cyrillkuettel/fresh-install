@@ -2,5 +2,5 @@ PARAMS=--pdf-engine=xelatex -V documentclass=scrartcl -V papersize=a4 -V lang=de
 FONTS=-V mainfont="EB Garamond" -V sansfont="Open Sans"
 DATE=-V date="`date +'%d.%m.%Y'`"
 
-NameGoesHere.pdf: NameGoesHere.md
+Braindump.pdf: Braindump.md
 	pandoc -s $(PARAMS) $(FONTS) $(DATE) $< -o $@ 

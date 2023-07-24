@@ -18,3 +18,5 @@
     # Search Everything
     searchall = "!f() { git log --all --full-history -- \"$1^\"; }; f"
 
+
+    norris = !git add -A && git commit --no-verify
