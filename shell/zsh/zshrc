@@ -140,6 +140,13 @@ alias pytest='pytest -s'
 alias 'git diff'='git diff --ignore=*.xml' # Almost never do I care for xml files
 
 
+
+# adb: this is meant to be run on the device
+# putting it here for reference
+alias adb_set_proxy="adb shell settings put global http_proxy $(ip -o -4 addr show ens33 | awk '{print $4}' | sed 's/\/.*//g'):8080"
+
+alias adb_unset_proxy="adb shell settings put global http_proxy  :0"
+ 
 # git pull all directories depth 1
 function pullall () {
 /usr/bin/ls | xargs -P10 -I{} git -C {} pull
