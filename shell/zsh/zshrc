@@ -102,8 +102,19 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 alias 'fresh'='cd ~/fresh-install'
 alias 'black'='black --line-length=79 --skip-string-normalization'
 alias fcf='test -d "$(fzf)" || : $_:h; cd -- $_'
-alias fyf='vim $(fzf)'
+
+function fyf() {
+  local selected_file
+  selected_file=$(fzf)
+  
+  if [[ -n "$selected_file" ]]; then
+    vim "$selected_file"
+  fi
+}
+
+# copy result path of fzf to clipboard
 alias fff='echo $(fzf) | xsel -b'
+
 alias fof='xdg-open $(fzf)'
 
 alias o='xdg-open'
@@ -239,4 +250,7 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+# search starting from home
+export FZF_DEFAULT_COMMAND="rg --files --hidden $HOME"
+# export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden $HOME"
 
