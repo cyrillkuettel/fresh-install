@@ -20,19 +20,11 @@ set colorcolumn=+1
 set scrolloff=10
 set clipboard^=unnamed,unnamedplus
 
-" nice search visual hint
-set hlsearch
-
-
 
 let mapleader = " "
-" I just want another mapleader. 
-" ',' will act exactly the same way as if space was pressed.
-map , <leader> 
 
 " easy search access
 nnoremap <leader>s /
-
 
 
 syntax on
@@ -89,6 +81,28 @@ xnoremap p P
 nnoremap <CR> :noh<CR><CR>
 
 
+" Goyo
+" https://github.com/junegunn/goyo.vim/wiki/Customization#ensure-q-to-quit-even-when-goyo-is-active
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
 
 call plug#begin()
 " The default plugin directory will be as follows:
@@ -96,5 +110,9 @@ call plug#begin()
 
 " Make sure you use single quotes
 Plug 'michaeljsmith/vim-indent-object'
+
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
+
 
