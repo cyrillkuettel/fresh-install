@@ -116,3 +116,5 @@ Plug 'junegunn/goyo.vim'
 call plug#end()
 
 
+" Enable Goyo automatically for Markdown
+autocmd BufRead,BufNewFile *.md :Goyo
