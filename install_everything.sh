@@ -104,6 +104,7 @@ pip install 'black[d]'
 # kitty
 cp ~/fresh-install/kitty.conf ~/.config/kitty/kitty.conf
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh --output installer.sh
+chmod +x installer.sh
 ./installer.sh
 # Create symbolic links to add kitty and kitten to PATH (assuming ~/.local/bin is in
 # your system-wide PATH)
