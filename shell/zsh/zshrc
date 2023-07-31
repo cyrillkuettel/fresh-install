@@ -203,6 +203,32 @@ docxgrep() {
 }
 
 
+# Interactive tool to cycle through the latest commits and view their changes.
+#
+# Press 'q', then 'n' to go to the next one. 
+# Press 'q', then 'q' again to exit.
+cycle() {
+
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "Not in a Git repository."
+    return 1
+  fi
+
+  local latest_commit=$(git rev-parse HEAD)
+  while true; do
+    git log -n 1 --oneline --color "$latest_commit"
+    git diff "$latest_commit"^!
+    echo "Press 'n' for the next commit, or 'q' to quit."
+    read -r -k1 input
+    case $input in
+      n) latest_commit=$(git rev-parse "$latest_commit"^) ;;
+      q) break ;;
+      *) echo -e "\nInvalid input. Press 'n' for the next commit, or 'q' to quit." ;;
+    esac
+    clear
+  done
+}
+
 
 
 
