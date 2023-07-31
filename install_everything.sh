@@ -11,7 +11,7 @@ git clone https://github.com/cyrillkuettel/fresh-install.git ~/
 sudo apt update
 sudo apt install ffmpeg x264 x265 
 
-sudo apt install -y htop ripgrep xsel keepassxc build-essential curl file xclip bat vlc python3 python3.10-venv terminator fd-find
+sudo apt install -y htop ripgrep xsel keepassxc build-essential curl file xclip bat vlc python3 python3.10-venv fd-find
 
 sudo apt install mplayer # anki
 
@@ -117,7 +117,8 @@ cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/appli
 sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 
-
-
+# set as default
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator `which kitty` 50
+sudo update-alternatives --config x-terminal-emulator
 
 
