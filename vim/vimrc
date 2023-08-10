@@ -104,6 +104,7 @@ endfunction
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
+<<<<<<< Updated upstream
 
 
 " Start <make kitty compatible>
@@ -156,6 +157,12 @@ let &t_RT = "\e[23;2t"
 let &t_ut=''
 " End <make kitty compatible>
 
+=======
+
+" Change Your Vim Cursor from a Block to Line in Normal and Insert Mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+>>>>>>> Stashed changes
 
 
 call plug#begin()
