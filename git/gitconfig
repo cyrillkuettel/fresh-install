@@ -20,3 +20,10 @@
 
 
     norris = !git add -A && git commit --no-verify
+
+    # =======================================================  
+    # Calls zsh function with corresonding git parameters:
+    # See .zshrc for detail.
+    fdiff = !zsh -ic 'git-fuzzy-diff "$@"' -
+    flog = !zsh -ic 'git-fuzzy-log "$@"' -
+
