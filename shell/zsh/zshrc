@@ -131,6 +131,7 @@ alias sw='echo $(($(date +%U)-7))'
 
 alias vz='vim ~/.zshrc && source ~/.zshrc'
 alias vv='vim ~/.vimrc'
+alias vg='vim ~/.gitconfig'
 
 # shortcut to the git alias
 alias f='git f '
