@@ -11,14 +11,23 @@ brew install java
 brew install clang-format
 brew install vlc
 brew install --cask calibre
+brew install anki
 
 # generate pdf from markdown 
 brew tap homebrew/cask-fonts
 brew install --cask font-open-sans
 brew install --cask basictex
-   
+
+# nerd fonts
+cd ~/ && git clone https://github.com/ryanoasis/nerd-fonts.git && cd nerd-fonts
+./install
+
+
    # get the font
 wget https://fontlibrary.org/assets/downloads/eb-garamond/ad76a14ea9b136557b474c3445caea08/eb-garamond.zip
+unzip eb-garamond.zip
+
+
 exit 0
 
   # unzip, put contents of tff folder accordingly:
