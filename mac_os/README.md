@@ -21,7 +21,10 @@ sudo touch /Library/Keyboard Layouts
 ```
 
 
-Go to system preferences -> keyboard layout -> other and select it. 
+Go to system preferences -> keyboard layout -> Others and select 'Swiss German
+Copy'
+If it does not appear, Restart the computer.
+
 Finally, activate it in the top menu bar on the right, there's a keyboard symbol.
 
 

@@ -18,7 +18,7 @@ brew install --cask font-open-sans
 brew install --cask basictex
    
    # get the font
-curl https://fontlibrary.org/assets/downloads/eb-garamond/ad76a14ea9b136557b474c3445caea08/eb-garamond.zip
+wget https://fontlibrary.org/assets/downloads/eb-garamond/ad76a14ea9b136557b474c3445caea08/eb-garamond.zip
 exit 0
 
   # unzip, put contents of tff folder accordingly:
