@@ -1,6 +1,7 @@
 # Core 
 brew update
 brew install ripgrep
+brew install fd 
 brew install wget
 brew install coreutils
 brew install --cask htop
