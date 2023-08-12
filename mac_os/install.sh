@@ -38,9 +38,6 @@ sudo cp *.ttf /Library/Fonts/
 
 eval "$(/usr/libexec/path_helper)"
 
-# the finder, files that begin with a . (dot) are not being shown by default
-defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder
-
 # manually show with 
 # Shift + Command + .
 
@@ -52,4 +49,13 @@ brew install --cask qlvideo
 pip install 'black[d]'
 
 mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
+
+
+# the finder, files that begin with a . (dot) are not being shown by default
+defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder
+
+# Makes ideavim work
+# https://stackoverflow.com/questions/39606031/intellij-key-repeating-idea-vim
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 
