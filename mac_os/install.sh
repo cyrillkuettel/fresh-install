@@ -12,6 +12,8 @@ brew install clang-format
 brew install vlc
 brew install --cask calibre
 brew install anki
+brew install --cask libreoffice
+
 
 # generate pdf from markdown 
 brew tap homebrew/cask-fonts
