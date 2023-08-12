@@ -50,3 +50,6 @@ brew install --cask qlvideo
 
 # install 'black as a server' for Blackd plugin globally 
 pip install 'black[d]'
+
+mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
+

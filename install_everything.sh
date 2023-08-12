@@ -122,3 +122,5 @@ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emula
 sudo update-alternatives --config x-terminal-emulator
 
 
+mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
+
