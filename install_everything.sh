@@ -6,7 +6,7 @@ set -e
 
 # Aims be non-interactively
 
-git clone https://github.com/cyrillkuettel/fresh-install.git ~/
+git clone https://github.com/cyrillkuettel/fresh-install.git
 
 sudo apt update
 sudo apt install ffmpeg x264 x265 
@@ -29,7 +29,7 @@ vim +'PlugInstall --sync' +qa
 
 # theme
 mkdir -p ~/.vim/colors
-cp ~/fresh-install/monokai.vim ~/.vim/colors
+cp ~/fresh-install/vim/monokai.vim ~/.vim/colors
 
 ssh-keygen -t ed25519 -C "cyrillkuettel@gmail.com"
 cat ~/.ssh/id_ed25519.pub
