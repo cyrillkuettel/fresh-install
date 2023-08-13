@@ -319,6 +319,13 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# ripgrep
+# =======
+# In my opintion, hidden files should be searched by default.
+# Especially when trying to find something related to configuration, 
+# these things are often put into hidden files in user
+alias rg='rg --hidden'
+
 
 # search starting from home
 export FZF_DEFAULT_COMMAND="rg --files --hidden $HOME"
