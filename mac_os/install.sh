@@ -16,6 +16,7 @@ brew install anki
 brew install pandoc 
 brew install ghostscript 
 brew install imagemagick
+brew install ffmpeg 
 brew install --cask libreoffice
 
 
