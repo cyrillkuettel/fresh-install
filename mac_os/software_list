@@ -1,6 +1,9 @@
-iTerm: terminal
-Ukulele: switch keyboard layout
-Fix the scroll direction: https://github.com/pilotmoon/Scroll-Reverser
-Connect non-ios devices via usb for mtp file transfer: https://github.com/ganeshrvel/openmtp
 
+Various tools / configurations.
+
+- Fix the scroll direction: https://github.com/pilotmoon/Scroll-Reverser
+- Connect non-ios devices via usb for mtp file transfer: https://github.com/ganeshrvel/openmtp
+
+- My favorite font:
+    FiraCode Nerd Font Regular 15
 
