@@ -13,6 +13,7 @@ brew install clang-format
 brew install vlc
 brew install --cask calibre
 brew install anki
+brew install pandoc 
 brew install --cask libreoffice
 
 
