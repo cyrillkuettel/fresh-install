@@ -14,6 +14,8 @@ brew install vlc
 brew install --cask calibre
 brew install anki
 brew install pandoc 
+brew install ghostscript 
+brew install imagemagick
 brew install --cask libreoffice
 
 
