@@ -19,10 +19,12 @@ brew install imagemagick
 brew install --cask libreoffice
 
 
+
 # generate pdf from markdown 
 brew tap homebrew/cask-fonts
 brew install --cask font-open-sans
-brew install --cask basictex
+
+brew install --cask mactex
 
 # nerd fonts
 cd ~/ && git clone https://github.com/ryanoasis/nerd-fonts.git && cd nerd-fonts
