@@ -1,0 +1,7 @@
+#/bin/bash
+
+# List the biggest files from the current directory.
+# It is unlikely to find a very big file more than 5 directories deep, so we 
+# prefer _speed_
+
+/usr/bin/fd -t f -I --max-depth 5 | xargs -d '\n' du -h | sort -rh | less
