@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #
-ZSH_THEME="robbyrussell"
+ZSH_THEME="fino-time"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,8 +73,9 @@ plugins=(git
 	zsh-autosuggestions
 	zsh-vim-mode
     zsh-autocomplete
-    fzf
 	)
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
@@ -147,9 +148,6 @@ alias fof='xdg-open $(fzf)'
 
 # show print statement in pytest (don't capture STOUT)
 alias pytest='pytest -s'
-
-# git aliases
-alias 'git diff'='git diff --ignore=*.xml' # Almost never do I care for xml files
 
 
 
