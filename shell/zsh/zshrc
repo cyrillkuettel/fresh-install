@@ -107,8 +107,8 @@ alias fcf='test -d "$(fzf)" || : $_:h; cd -- $_'
 function fyf() {
   local selected_file
   selected_file=$(fzf)
-  
-  if [[ -n "$selected_file" ]]; then
+
+  if [[ -n "$selected_file" && "$selected_file" != $'\x04' ]]; then
     vim "$selected_file"
   fi
 }
