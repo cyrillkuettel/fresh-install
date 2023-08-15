@@ -19,6 +19,7 @@ brew install imagemagick
 brew install ffmpeg 
 brew install --cask libreoffice
 brew install gnu-tar
+brew install bat
 
 
 # generate pdf from markdown 
