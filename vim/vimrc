@@ -93,6 +93,8 @@ function! s:goyo_enter()
 
    set noshowmode
    set noshowcmd
+   " prevent horizontal scrolling
+   set sidescrolloff=0 
    set scrolloff=999
 
 endfunction
