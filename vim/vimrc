@@ -97,6 +97,9 @@ function! s:goyo_enter()
    set sidescrolloff=0 
    set scrolloff=999
 
+   " Hard wrap at textwidth
+   set formatoptions+=t
+
 endfunction
 
 function! s:goyo_leave()
