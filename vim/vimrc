@@ -80,6 +80,8 @@ xnoremap p P
 " https://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting
 nnoremap <CR> :noh<CR><CR>
 
+" Ignore ex mode 
+map Q <Nop>
 
 " Goyo
 " https://github.com/junegunn/goyo.vim/wiki/Customization#ensure-q-to-quit-even-when-goyo-is-active
