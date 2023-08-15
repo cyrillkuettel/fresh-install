@@ -18,7 +18,7 @@ brew install ghostscript
 brew install imagemagick
 brew install ffmpeg 
 brew install --cask libreoffice
-
+brew install gnu-tar
 
 
 # generate pdf from markdown 
