@@ -67,4 +67,6 @@ defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder
 # https://stackoverflow.com/questions/39606031/intellij-key-repeating-idea-vim
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+# Rosetta for x86_64. For example, building PyQt5 is impossible without this.
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
