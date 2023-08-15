@@ -39,6 +39,7 @@ unzip eb-garamond.zip
 
 # Making software installed from a .dmg file available as a terminal command 
 sudo ln -s /Applications/Anki.app/Contents/MacOS/anki /usr/local/bin/anki
+sudo ln -s /Applications/Firefox.app/Contents/MacOS/firefox /usr/local/bin/firefox
 
 exit 0
 
