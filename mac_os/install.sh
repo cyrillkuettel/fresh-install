@@ -37,6 +37,8 @@ cd ~/ && git clone https://github.com/ryanoasis/nerd-fonts.git && cd nerd-fonts
 wget https://fontlibrary.org/assets/downloads/eb-garamond/ad76a14ea9b136557b474c3445caea08/eb-garamond.zip
 unzip eb-garamond.zip
 
+# Making software installed from a .dmg file available as a terminal command 
+sudo ln -s /Applications/Anki.app/Contents/MacOS/anki /usr/local/bin/anki
 
 exit 0
 
