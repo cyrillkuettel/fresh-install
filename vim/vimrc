@@ -88,6 +88,12 @@ function! s:goyo_enter()
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+   set noshowmode
+   set noshowcmd
+   set wrap
+   set scrolloff=999
+
 endfunction
 
 function! s:goyo_leave()
@@ -104,6 +110,10 @@ endfunction
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
+"Goyo settings
+let g:goyo_height= '100%'
+let g:goyo_margin_top = 0
+let g:goyo_margin_bottom = 0
 
 
 " Start <make kitty compatible>
