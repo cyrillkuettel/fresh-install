@@ -91,7 +91,6 @@ function! s:goyo_enter()
 
    set noshowmode
    set noshowcmd
-   set wrap
    set scrolloff=999
 
 endfunction
