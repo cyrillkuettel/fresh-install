@@ -105,3 +105,9 @@ EOF
 plutil -convert xml1 -o - ${TEMP_SETTINGS_FILE} | defaults import pbs -
 rm ${TEMP_SETTINGS_FILE}
 
+
+# ba setup
+https://github.com/zegervdv/homebrew-zathura
+# skim pd viewer
+# Auto-reload obviously ( no idea why this is not default)
+defaults write -app Skim SKAutoReloadFileUpdate -boolean true
