@@ -80,6 +80,8 @@ xnoremap p P
 " https://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting
 nnoremap <CR> :noh<CR><CR>
 
+" Ignore ex mode 
+map Q <Nop>
 
 " Goyo
 " https://github.com/junegunn/goyo.vim/wiki/Customization#ensure-q-to-quit-even-when-goyo-is-active
@@ -88,6 +90,16 @@ function! s:goyo_enter()
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+   set noshowmode
+   set noshowcmd
+   " prevent horizontal scrolling
+   set sidescrolloff=0 
+   set scrolloff=999
+
+   " Hard wrap at textwidth
+   set formatoptions+=t
+
 endfunction
 
 function! s:goyo_leave()
@@ -104,7 +116,10 @@ endfunction
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
-<<<<<<< Updated upstream
+"Goyo settings
+let g:goyo_height= '100%'
+let g:goyo_margin_top = 0
+let g:goyo_margin_bottom = 0
 
 
 " Start <make kitty compatible>

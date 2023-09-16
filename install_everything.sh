@@ -6,7 +6,7 @@ set -e
 
 # Aims be non-interactively
 
-git clone https://github.com/cyrillkuettel/fresh-install.git ~/
+git clone https://github.com/cyrillkuettel/fresh-install.git
 
 sudo apt update
 sudo apt install ffmpeg x264 x265 
@@ -29,7 +29,7 @@ vim +'PlugInstall --sync' +qa
 
 # theme
 mkdir -p ~/.vim/colors
-cp ~/fresh-install/monokai.vim ~/.vim/colors
+cp ~/fresh-install/vim/monokai.vim ~/.vim/colors
 
 ssh-keygen -t ed25519 -C "cyrillkuettel@gmail.com"
 cat ~/.ssh/id_ed25519.pub
@@ -121,4 +121,6 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator `which kitty` 50
 sudo update-alternatives --config x-terminal-emulator
 
+
+mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
 
