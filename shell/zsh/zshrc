@@ -106,9 +106,16 @@ alias fcf='test -d "$(fzf)" || : $_:h; cd -- $_'
 
 function fyf() {
   local selected_file
-  selected_file=$(fzf)
-
-  if [[ -n "$selected_file" && "$selected_file" != $'\x04' ]]; then
+  
+  if [[ "$PWD" == *"/Users/cyrill/ba/"* ]]; then
+    # If the current directory path includes "/Users/cyrill/ba/", only include .text directories in the search
+    selected_file=$(fd --type f --extension tex | fzf)
+  else
+    # In other directories, include all files and directories in the search
+    selected_file=$(fzf)
+  fi
+  
+  if [[ -n "$selected_file" ]]; then
     vim "$selected_file"
   fi
 }
