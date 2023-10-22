@@ -6,8 +6,11 @@
 [alias]
 	adog = log --all --decorate --oneline --graph
     whatadded = log --diff-filter=A
-    whataddedstring = "!f() { git log -S \"$1\" --source --all; }; f"
-    was = "!f() { git log -S \"$1\" --source --all --branches --remotes; }; f"
+
+    # "whataddedstring" search all history, for when a specific string was added
+    was= "!f() { git log -S \"$1\" --source --all; }; f"
+
+    # was = "!f() { git log -S \"$1\" --source --all --branches --remotes; }; f"
 
 	f = "!f() { git show $(git log --oneline | cut -d ' ' -f 1 | head -$1 | tail -1); }; f"
     # "Find mine": same as f but only by commits
