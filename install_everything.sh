@@ -95,10 +95,10 @@ printf 'yes\nyes\nyes\nyes' | ~/.fzf/install
 
 source ~/.zshrc
 
+# https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
+
 # install 'black as a server' for Blackd plugin globally 
 pip install 'black[d]'
-
-
 
 
 # kitty
