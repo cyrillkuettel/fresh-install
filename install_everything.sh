@@ -100,6 +100,8 @@ source ~/.zshrc
 # install 'black as a server' for Blackd plugin globally 
 pip install 'black[d]'
 
-
 mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
+
+# makes caps act as escape
+setxkbmap -option caps
 
