@@ -102,6 +102,7 @@ pip install 'black[d]'
 
 mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
 
-# makes caps act as escape
-setxkbmap -option caps
+# how-to-remap-caps-lock-to-esc
+
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
