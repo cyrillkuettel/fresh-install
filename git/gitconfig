@@ -10,6 +10,9 @@
     # "whataddedstring" search all history, for when a specific string was added
     was= "!f() { git log -S \"$1\" --source --all; }; f"
 
+    # lists branches in reverse order of commit
+    br="for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+
     # was = "!f() { git log -S \"$1\" --source --all --branches --remotes; }; f"
 
 	f = "!f() { git show $(git log --oneline | cut -d ' ' -f 1 | head -$1 | tail -1); }; f"
