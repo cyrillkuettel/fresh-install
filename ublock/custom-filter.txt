@@ -1,3 +1,8 @@
+! change width of hacker news comments
+news.ycombinator.com##.comment:style(max-width: 60ch !important; overflow: hidden !important;)
+news.ycombinator.com##.comhead:style(background: #e6e6df; font-weight: italic; color: #686868 !important;)
+news.ycombinator.com##.hnuser:style(background: #e6e6df; font-style: italic; color: #575757 !important;)
+
 ! No Pinterest Results
 google.*##.g:has(a[href*=".pinterest."]) 
 google.*##a[href*=".pinterest."]:nth-ancestor(1)
