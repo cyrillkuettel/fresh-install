@@ -107,8 +107,8 @@ alias fcf='test -d "$(fzf)" || : $_:h; cd -- $_'
 function fyf() {
   local selected_file
   
-  if [[ "$PWD" == *"/Users/cyrill/ba/"* ]]; then
-    # If the current directory path includes "/Users/cyrill/ba/", only include .text directories in the search
+  if [[ "$PWD" == *"/Users/cyrill/ba/ba/cyrill"* ]]; then
+    #  only include .text directories in the search
     selected_file=$(fd --type f --extension tex | fzf)
   else
     # In other directories, include all files and directories in the search
@@ -116,7 +116,9 @@ function fyf() {
   fi
   
   if [[ -n "$selected_file" ]]; then
-    vim "$selected_file"
+    # Set the title of the Vim window to the name of the file
+    vim -c "let &titlestring = '${selected_file}' | set title" "$selected_file"
+    realpath "$selected_file"
   fi
 }
 
