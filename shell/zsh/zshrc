@@ -117,7 +117,7 @@ function fyf() {
   
   if [[ -n "$selected_file" ]]; then
     # Set the title of the Vim window to the name of the file
-    vim -c "let &titlestring = '${selected_file}' | set title" "$selected_file"
+    vim "$selected_file"
     realpath "$selected_file"
   fi
 }
