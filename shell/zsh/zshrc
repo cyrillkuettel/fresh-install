@@ -108,8 +108,8 @@ function fyf() {
   local selected_file
   
   if [[ "$PWD" == *"/Users/cyrill/ba/ba/cyrill"* ]]; then
-    #  only include .text directories in the search
-    selected_file=$(fd --type f --extension tex | fzf)
+    #  only include the files I'm interested in  
+    selected_file=$(fd --type f -e tex -e md -e bib -e log | fzf)
   else
     # In other directories, include all files and directories in the search
     selected_file=$(fzf)
