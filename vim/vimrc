@@ -140,14 +140,5 @@ Plug 'lervag/vimtex'
 
 call plug#end()
 
-
 " Enable Goyo automatically for Markdown
 autocmd BufRead,BufNewFile *.md :Goyo
-
-
-" Tell VimTeX where the main.tex is 
-augroup VimTeX
-  autocmd!
-  autocmd BufReadPre /Users/cyrill/ba/ba/cyrill/*.tex
-            \ let b:vimtex_main = '/Users/cyrill/ba/ba/cyrill/document.tex'
-augroup END
