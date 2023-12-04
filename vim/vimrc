@@ -132,6 +132,12 @@ Plug 'michaeljsmith/vim-indent-object'
 
 Plug 'junegunn/goyo.vim'
 
+"VimTeX is a modern Vim and Neovim filetype and syntax plugin for LaTeX files.
+Plug 'lervag/vimtex'
+    let g:tex_flavor='latex'
+    let g:vimtex_view_method='zathura'
+    let g:vimtex_quickfix_mode=0
+
 call plug#end()
 
 
