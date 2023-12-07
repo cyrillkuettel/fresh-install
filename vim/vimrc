@@ -116,6 +116,12 @@ endfunction
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
+" Swap functionality of Ctrl + i and Ctrl + o in jump list
+" ... Can't un-learn it. 
+nnoremap <C-I> <C-O>
+nnoremap <C-O> <C-I>
+
+
 "Goyo settings
 let g:goyo_height= '100%'
 let g:goyo_margin_top = 0
