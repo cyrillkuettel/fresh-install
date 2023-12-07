@@ -9,7 +9,8 @@ set -e
 git clone https://github.com/cyrillkuettel/fresh-install.git
 
 sudo apt update
-sudo apt install -y htop ffmpeg x264 x265 ripgrep xsel keepassxc build-essential curl file xclip bat vlc python3 python3.10-venv fd-find
+sudo apt install -y htop ffmpeg x264 x265 ripgrep xsel keepassxc build-essential
+curl file xclip bat vlc python3 python3.10-venv fd-find pinta 
 
 sudo apt install mplayer # anki
 
@@ -100,5 +101,17 @@ source ~/.zshrc
 pip install 'black[d]'
 
 mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
+
+# Set VLC default for all media types forever 
+python - <<EOF
+import subprocess
+
+def set_default_vlc(file_types):
+    for file_type in file_types:
+        subprocess.run(["gio", "mime", file_type, "vlc.desktop"], check=True)
+
+file_types = ["audio/mpeg", "video/mp4", "video/x-matroska", "video/quicktime"]
+set_default_vlc(file_types)
+EOF
 
 
