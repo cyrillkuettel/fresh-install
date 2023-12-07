@@ -4,14 +4,12 @@ set -e
 # Provides a script to install most basic utilities assuming 
 # a new debian based linux system.
 
-# Aims be non-interactively
+# Aims be non-interactively, but not 100% at this point.
 
 git clone https://github.com/cyrillkuettel/fresh-install.git
 
 sudo apt update
-sudo apt install ffmpeg x264 x265 
-
-sudo apt install -y htop ripgrep xsel keepassxc build-essential curl file xclip bat vlc python3 python3.10-venv fd-find
+sudo apt install -y htop ffmpeg x264 x265 ripgrep xsel keepassxc build-essential curl file xclip bat vlc python3 python3.10-venv fd-find
 
 sudo apt install mplayer # anki
 
@@ -95,6 +93,7 @@ printf 'yes\nyes\nyes\nyes' | ~/.fzf/install
 
 source ~/.zshrc
 
+# snap sucks, so use this:
 # https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
 
 # install 'black as a server' for Blackd plugin globally 
@@ -102,7 +101,4 @@ pip install 'black[d]'
 
 mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
 
-# how-to-remap-caps-lock-to-esc
-
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
