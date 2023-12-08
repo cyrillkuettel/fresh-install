@@ -115,3 +115,9 @@ set_default_vlc(file_types)
 EOF
 
 
+# Latex
+sudo apt-get install texlive-xetex
+# extra stuff one often needs
+sudo apt-get install texlive-bibtex-extra
+sudo apt-get install texlive-lang-german
+
