@@ -63,7 +63,8 @@ mkdir -p ~/.local/bin/ && cp ~/fresh-install/shell/rfv ~/.local/bin
 
 # the finder, files that begin with a . (dot) are not being shown by default
 defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder
-
+# show absolute path in finder
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
 # Makes ideavim work
 # https://stackoverflow.com/questions/39606031/intellij-key-repeating-idea-vim
 defaults write -g ApplePressAndHoldEnabled -bool false
