@@ -148,3 +148,4 @@ call plug#end()
 
 " Enable Goyo automatically for Markdown
 autocmd BufRead,BufNewFile *.md :Goyo
+autocmd BufRead,BufNewFile *.tex :Goyo
