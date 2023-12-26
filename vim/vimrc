@@ -91,9 +91,9 @@ map Q <Nop>
 nnoremap <leader>g :Goyo<CR>
 
 " feature flag for Goyo because Goyo issues when opening at line number (why?)
-if exists("g:no_goyo") && g:no_goyo == 1
+if empty($NO_GOYO)
+  " The environment variable NO_GOYO is not present. So we can run Goyo
 
-    " Goyo
     " https://github.com/junegunn/goyo.vim/wiki/Customization#ensure-q-to-quit-even-when-goyo-is-active
     function! s:goyo_enter()
       let b:quitting = 0

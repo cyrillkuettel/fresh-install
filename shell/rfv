@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# disable goyo because else it won't work with jumping to the line.. Assumes Goyo in ~/.vimrc is behind this feature flag
+export NO_GOYO="1"
 
 # 1. Search for text in files using Ripgrep
 # 2. Interactively narrow down the list using fzf
@@ -9,4 +12,4 @@ rg --color=always --line-number --no-heading --smart-case "${*:-}" |
       --delimiter : \
       --preview 'bat --color=always {1} --highlight-line {2}' \
       --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
-      --bind 'enter:become(vim -c "let g:no_goyo = 1" {1} +{2})' # disable goyo because else it won't work. Assumes Goyo in ~/.vimrc is behind this feature flag
+      --bind 'enter:become(vim {1} +{2})' 
