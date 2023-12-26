@@ -88,6 +88,7 @@ nnoremap <CR> :noh<CR><CR>
 " Ignore ex mode 
 map Q <Nop>
 
+nnoremap <leader>g :Goyo<CR>
 
 " feature flag for Goyo because Goyo issues when opening at line number (why?)
 if exists("g:no_goyo") && g:no_goyo == 1
