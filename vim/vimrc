@@ -7,6 +7,9 @@ set autoindent
 
 set smarttab
 
+" Mainly useful when writing .tex 
+set wrap
+
 " Incremental search
 set incsearch
 
@@ -88,6 +91,11 @@ nnoremap <CR> :noh<CR><CR>
 " Ignore ex mode 
 map Q <Nop>
 
+
+" https://chat.openai.com/share/6d5f1e31-d506-4fa6-80eb-451108c8567b
+" switch to soft wrapping while maintaining vertical movement with j and k 
+nnoremap j gj
+nnoremap k gk
 nnoremap <leader>g :Goyo<CR>
 
 " feature flag for Goyo because Goyo issues when opening at line number (why?)
