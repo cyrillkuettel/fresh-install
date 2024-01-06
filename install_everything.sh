@@ -121,3 +121,9 @@ sudo apt-get install texlive-xetex
 sudo apt-get install texlive-bibtex-extra
 sudo apt-get install texlive-lang-german
 
+
+# zathura
+sudo apt install zathura-pdf-mupdf
+
+
+
