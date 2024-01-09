@@ -341,7 +341,7 @@ fi
 
 # ripgrep
 # =======
-# In my opintion, hidden files should be searched by default.
+# In my opinion, hidden files should be searched by default.
 # Especially when trying to find something related to configuration, 
 # these things are often put into hidden files in user
 alias rg='rg --hidden'
