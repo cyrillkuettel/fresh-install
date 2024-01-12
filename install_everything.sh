@@ -123,7 +123,10 @@ sudo apt-get install texlive-lang-german
 
 
 # zathura
-sudo apt install zathura-pdf-mupdf
+# this would be better but there is no pre-built package
+# sudo apt install zathura-pdf-mupdf
+
+sudo apt install zathura
 
 
 # map caps to escape for vim
