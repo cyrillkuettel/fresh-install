@@ -128,5 +128,5 @@ sudo apt install zathura-pdf-mupdf
 
 # map caps to escape for vim
 
--gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
