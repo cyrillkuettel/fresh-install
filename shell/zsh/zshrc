@@ -392,6 +392,9 @@ fi
 alias rg='rg --hidden'
 
 
+# map caps to escape for vim
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
+
 # search starting from home
 export FZF_DEFAULT_COMMAND="rg --files --hidden $HOME"
 # export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden $HOME"

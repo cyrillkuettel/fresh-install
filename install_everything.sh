@@ -129,7 +129,4 @@ sudo apt-get install texlive-lang-german
 sudo apt install zathura
 
 
-# map caps to escape for vim
-
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
