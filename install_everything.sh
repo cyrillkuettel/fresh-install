@@ -128,5 +128,9 @@ sudo apt-get install texlive-lang-german
 
 sudo apt install zathura
 
+# Creating ~/.xinitrc for some keyboard remaps
+cp ~/fresh-install/.Xmodmap ~/
+echo 'xmodmap ~/.Xmodmap' > ~/.xinitrc
+
 
 
