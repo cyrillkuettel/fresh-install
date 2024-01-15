@@ -172,6 +172,51 @@ alias fof='xdg-open $(fzf)'
 alias pytest='pytest -s'
 
 
+# Alias for local zsh functions
+alias pll='pull_latest_android_image'
+
+
+# pull the latest image from android by mofidication date
+function pull_latest_android_image() {
+    python << EOF
+import os
+import subprocess
+
+def get_latest_image_from_android():
+    camera_folder_path = '/storage/emulated/0/DCIM/Camera/'
+    adb_command = f'adb shell ls -t {camera_folder_path}'
+    result = subprocess.run(adb_command, shell=True, capture_output=True, text=True)
+
+    if result.returncode != 0:
+        raise Exception(f"Error in adb command: {result.stderr}")
+
+    files = result.stdout.split('\n')
+    latest_file = files[0].strip()
+
+    if not latest_file:
+        raise Exception("No files found in the camera directory.")
+
+    latest_file_path = os.path.join(camera_folder_path, latest_file)
+    adb_pull_command = f'adb pull {latest_file_path}'
+    pull_result = subprocess.run(adb_pull_command, shell=True, capture_output=True, text=True)
+
+    if pull_result.returncode != 0:
+        raise Exception(f"Error in pulling file: {pull_result.stderr}")
+
+    return latest_file
+
+try:
+    latest_image = get_latest_image_from_android()
+    print(f"Latest image pulled: {latest_image}")
+except Exception as e:
+    print(f"Error: {e}")
+
+EOF
+}
+
+
+
+
 
 # adb: this is meant to be run on the device
 # putting it here for reference
@@ -346,6 +391,9 @@ fi
 # these things are often put into hidden files in user
 alias rg='rg --hidden'
 
+
+# map caps to escape for vim
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
 # search starting from home
 export FZF_DEFAULT_COMMAND="rg --files --hidden $HOME"

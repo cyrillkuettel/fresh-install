@@ -1,0 +1,19 @@
+keycode 10 = 1 plus 1 plus backslash
+
+
+! keycode 10 = 1 plus backslash
+
+
+! DEPRECATED
+! setting the mode_switch to the right alt key 
+! keycode 108 = Mode_switch
+
+! backslash produced the usual way. 
+! Mode_switch is used
+! keycode 49 = section ssharp backslash
+
+
+! alt gr + 3 should produce the '#'
+! Mode_switch is used
+! keycode 12 = 108 12 numbersign
+

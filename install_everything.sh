@@ -121,3 +121,16 @@ sudo apt-get install texlive-xetex
 sudo apt-get install texlive-bibtex-extra
 sudo apt-get install texlive-lang-german
 
+
+# zathura
+# this would be better but there is no pre-built package
+# sudo apt install zathura-pdf-mupdf
+
+sudo apt install zathura
+
+# Creating ~/.xinitrc for some keyboard remaps
+cp ~/fresh-install/.Xmodmap ~/
+echo 'xmodmap ~/.Xmodmap' > ~/.xinitrc
+
+
+
