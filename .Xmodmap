@@ -2,4 +2,4 @@
 keycode 10 = 1 plus 1 plus backslash
 
 keycode 47 = odiaeresis greater odiaeresis greater
-keycode 48 = adiaeresis less adiaeresis less
+keycode 48 = adiaeresis less braceleft braceleft braceleft braceleft
