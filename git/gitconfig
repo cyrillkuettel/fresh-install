@@ -35,6 +35,7 @@
     # See .zshrc for detail.
     fdiff = !zsh -ic 'git-fuzzy-diff "$@"' -
     flog = !zsh -ic 'git-fuzzy-log "$@"' -
+	lastbranches = git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10
      
 [core]
     # pager = diff-so-fancy | less --tabs=4 -RFX
