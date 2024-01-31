@@ -243,7 +243,26 @@ function gs() {
      fi
 }
 
+# same as gs but only considers the N most recent branches
+function gls () {
+    local branches=$(git lastbranches | fzf --height 20% --layout=reverse --border)
+    if [ -z "$branches" ]; then
+        echo "No branch selected."
+        return 1
+    fi
 
+    local selected_branch="$(echo "$branches" | xargs)"
+    git switch "$selected_branch"
+    if [ $? -ne 0 ]; then
+        if [ "$(git branch --show-current)" = "$selected_branch" ]; then
+            echo "Already on branch $selected_branch!"
+        else
+            echo "Error switching to branch $selected_branch."
+        fi
+    else
+        echo "Switched to branch $selected_branch."
+    fi
+}
 
 # Navigation
 function .. () { cd .. }
