@@ -112,3 +112,16 @@ https://github.com/zegervdv/homebrew-zathura
 # skim pd viewer
 # Auto-reload obviously ( no idea why this is not default)
 defaults write -app Skim SKAutoReloadFileUpdate -boolean true
+
+# Install Nibbler and lc0
+#
+mkdir -p  ~/lc0 && cd ~/lc0
+
+# Install Nibbler
+git clone https://github.com/rooklift/nibbler.git && cd nibbler && wget https://github.com/Jac-Zac/Nibbler_MacOS/raw/main/nibbler.icns && curl https://raw.githubusercontent.com/Jac-Zac/Nibbler_MacOS/main/build_mac.sh | sh
+
+# Install lc0
+cd ~/lc0 && git clone --recurse-submodules https://github.com/LeelaChessZero/lc0.git && cd lc0/ && ./build.sh
+
+
+
