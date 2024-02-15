@@ -121,7 +121,8 @@ mkdir -p  ~/lc0 && cd ~/lc0
 git clone https://github.com/rooklift/nibbler.git && cd nibbler && wget https://github.com/Jac-Zac/Nibbler_MacOS/raw/main/nibbler.icns && curl https://raw.githubusercontent.com/Jac-Zac/Nibbler_MacOS/main/build_mac.sh | sh
 
 # Install lc0
-cd ~/lc0 && git clone --recurse-submodules https://github.com/LeelaChessZero/lc0.git && cd lc0/ && ./build.sh
+brew install lc0
+# in Nibbler: Engine -> Choose Engine -> set /opt/homebrew/bin/lc0
 
 
 
