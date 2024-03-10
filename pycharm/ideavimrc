@@ -17,6 +17,11 @@ set ideajoin
 set visualbell
 
 
+" Go to the next function
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+
 " tabs
 nmap <leader>h :action PreviousTab<CR>
 nmap <leader>l :action NextTab<CR>
@@ -29,10 +34,13 @@ nmap <Space>p :tabm+1 <CR>
 " more convenient shortcut for go to action
 nmap <leader>a :action GotoAction<CR>
 
+" Annotate with git blame
+nnoremap <leader>g :action Annotate<CR>
 
 " select everything (very useful)
 nnoremap <C-A> gg<S-v>G
+
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
-
-
+" Easier search access
+nmap <Space>b :action FindInPath<CR>
