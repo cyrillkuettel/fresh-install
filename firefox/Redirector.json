@@ -1,0 +1,57 @@
+{
+    "createdBy": "Redirector v3.5.3",
+    "createdAt": "2024-03-10T19:03:38.435Z",
+    "redirects": [
+        {
+            "description": "Example redirect, try going to http://example.com/anywordhere",
+            "exampleUrl": "http://example.com/some-word-that-matches-wildcard",
+            "exampleResult": "https://google.com/search?q=some-word-that-matches-wildcard",
+            "error": null,
+            "includePattern": "http://example.com/*",
+            "excludePattern": "",
+            "patternDesc": "Any word after example.com leads to google search for that word.",
+            "redirectUrl": "https://google.com/search?q=$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "Chatgpt ok boss",
+            "exampleUrl": "https://chat.openai.com/",
+            "exampleResult": "https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic",
+            "error": null,
+            "includePattern": "^https:\\/\\/chat\\.openai\\.com\\/$",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://chat.openai.com/g/g-YyyyMT9XH-chatgpt-classic",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        },
+        {
+            "description": "old reddit redirect",
+            "exampleUrl": "https://www.reddit.com/r/foobar",
+            "exampleResult": "https://old.reddit.com/r/foobar",
+            "error": null,
+            "includePattern": "https://www.reddit.com/*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "https://old.reddit.com/$1",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        }
+    ]
+}
