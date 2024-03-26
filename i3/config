@@ -232,12 +232,3 @@ bindsym $mod+l workspace next
 bar {
         status_command i3status
 }
-
-# https://old.reddit.com/r/i3wm/comments/8gh4c0/working_fix_for_focusing_intellij_popups/
-# fix pop ups in pcharm
-for_window [class="^jetbrains-.+"][window_type=dialog] focus
-for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
-
-
-# fix search window in pycharm disappearing
-focus_follows_mouse no
