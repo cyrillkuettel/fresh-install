@@ -119,6 +119,7 @@ function fyf() {
     # Set the title of the Vim window to the name of the file
     vim "$selected_file"
     realpath "$selected_file"
+    echo "Directory: $(dirname "$(realpath "$selected_file")")"
   fi
 }
 
@@ -410,6 +411,9 @@ fi
 # these things are often put into hidden files in user
 alias rg='rg --hidden'
 
+
+# This one exclusively for i3wm. Don't ask me why
+setxkbmap -option caps:escape
 
 # map caps to escape for vim
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
