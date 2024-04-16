@@ -167,8 +167,7 @@ Plug 'michaeljsmith/vim-indent-object'
 
 Plug 'junegunn/goyo.vim'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
 
 "VimTeX is a modern Vim and Neovim filetype and syntax plugin for LaTeX files.
 Plug 'lervag/vimtex'
