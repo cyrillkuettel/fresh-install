@@ -29,7 +29,7 @@
 
     # Chuck Norris
 	norris = !git add -A && git commit --no-verify
-	nnorris = !git add -A && git commit && git push
+	nnorris = !git add -A && git commit --no-verify && git push
 
     # Calls zsh function with corresonding git parameters:
     # See .zshrc for detail.
