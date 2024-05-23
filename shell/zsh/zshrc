@@ -231,18 +231,21 @@ function pullall () {
 }
 
 
-function gs() {
-    local selected_branch=$(git branch | fzf)
-    selected_branch="$(echo "$selected_branch" | xargs)" # handy way to remove whitespace
-
-    git switch ${selected_branch}
-    
-     if [ $? -ne 0 ]; then
-         if [ "$(git branch --show-current)" = "$selected_branch" ]; then
-              echo "Already on branch $selected_branch !"
-         fi
-     fi
+gs () {
+	if [ "$1" = "-" ]; then
+		git switch -
+	else
+		local selected_branch=$(git branch | fzf) 
+		selected_branch="$(echo "$selected_branch" | xargs)" 
+		git switch ${selected_branch}
+		if [ $? -ne 0 ]; then
+			if [ "$(git branch --show-current)" = "$selected_branch" ]; then
+				echo "Already on branch $selected_branch !"
+			fi
+		fi
+	fi
 }
+
 
 # same as gs but only considers the N most recent branches
 function gls () {
