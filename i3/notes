@@ -1,3 +1,6 @@
+
+
+
 sudo apt install arandr  # UI wrapper around xrandr
 sudo apt install autorandr # to save monitor / display arrangement
 
@@ -22,3 +25,14 @@ sudo usermod -aG video ${USER}
 # Then add this to config (already there)
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
+
+
+Install this:
+git clone https://github.com/regolith-linux/i3-gnome-flashback
+cd i3-gnome-flashback
+sudo make install
+
+
+# set my favorite wallpapper
+gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/ubuntu_by_arman1992.jpg' 
+gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/ubuntu_by_arman1992.jpg' 
