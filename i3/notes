@@ -28,6 +28,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
 
 Install this:
+sudo apt install i3 gnome-flashback build-essential
 git clone https://github.com/regolith-linux/i3-gnome-flashback
 cd i3-gnome-flashback
 sudo make install
