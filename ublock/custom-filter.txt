@@ -1,3 +1,7 @@
+! simpler color inverse for dark mode if i want
+127.0.0.1##html:style(filter: invert(95%) !important;)
+127.0.0.1##td[bgcolor="#ff6600"]:style(filter: invert(105%) !important;)
+
 ! change width of hacker news comments
 news.ycombinator.com##.comment:style(max-width: 60ch !important; overflow: hidden !important;)
 news.ycombinator.com##.comhead:style(background: #e6e6df; font-weight: italic; color: #686868 !important;)
