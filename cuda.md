@@ -7,3 +7,7 @@
 ](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#introduction)
 
 
+## Check it is enabled 
+
+nvidia-settings (in the gui, check which GPU is used)
+
