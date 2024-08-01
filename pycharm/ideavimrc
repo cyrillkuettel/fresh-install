@@ -1,20 +1,104 @@
 source ~/.vimrc
 
-let mapleader=" "
+let mapleader = " "
+
+" ideavim Plugins
+Plug 'easymotion/vim-easymotion'
+
+" Activates Ideavim sneak
+set sneak
+
+" Activates Ideavim Easymotion
+set easymotion
+" map <Leader> <Plug>(easymotion-prefix)
+
+" to scroll by half the window height
+set scroll=&lines/2
 
 " More convenient access to full text search
 nmap <leader>f :action FindInPath<CR>
 
-
-" Invokes BlackConect 'Reformat Selected Fragment'
+" Invokes BlackConnect 'Reformat Selected Fragment'
 vmap <leader>b :action me.lensvol.blackconnect.actions.ReformatSelectedFragmentAction<CR>
 
-
 " SurroundWith the current selection.
-vnoremap <Space>sw :action SurroundWith<CR>
+vnoremap <Space>z :action SurroundWith<CR>
+
+" harpoon (not working, why)
+nmap <Space>k :action Harpoon<CR>
+
+
+packadd matchit
+
 
 set ideajoin
 set visualbell
+
+" https://youtrack.jetbrains.com/issue/VIM-3064/visual-mode-paste-doesnt-replace-selection
+set clipboard+=unnamedplus
+
+" tab switching
+nmap <Space>h :action PreviousTab<CR>
+nmap <Space>l :action NextTab<CR>
+
+
+
+function! NavigateSplitsOrTabs()
+"not working currently.
+" idea: it would be much more pleasant if the same key could be used to navigate between tabs and eplitters
+
+" so we can always switch to the next tab with the same key
+" for example, if we are in the first tab of the splitter, and we want to go left, we have to type the switch to splitter command now
+" Goto next / previous spliter
+" Project idea: create a plugin that createes new Actionid
+
+" ConditionalJumpToPreviousTab: an action that combines 'Goto next / previous spliter'
+" based on some condition, so that we only have to type this once.
+" Logic:, if we are in the Splitter, and we are in the first tab of that Splitter, we want to
+" invoke GotoPreviousTab (jump to the left if the Splitter is on the right) so we can always use the same key
+    :action NextTab
+
+  if winnr('$') == 1 && tabpagenr('$') > 1
+    " Navigate to the next tab if there is only one window in this tab but multiple tabs exist.
+    :action NextTab<CR>
+  elseif winnr('$') > 1
+    " Navigate to the next window in this tab if there are multiple windows.
+    :action NextSplitter<CR>
+  else
+    :action NextSplitter<CR>
+  endif
+endfunction
+
+map <leader>w :call NavigateSplitsOrTabs()<CR>
+
+
+
+function! Invert(calledFromVisual)
+  let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
+                 \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last']
+
+  if a:calledFromVisual
+    normal gv"wy
+  else
+    normal "wyiw
+  endif
+  let wordUnderCaret = @w
+
+  let eraseWord = a:calledFromVisual ? 'gvc' : 'ciw'
+  let count = 0
+  while (count < len(antonyms))
+    if (antonyms[count] ==# wordUnderCaret)
+      let antonym = (count % 2 ==? 0) ? antonyms[count + 1] : antonyms[count - 1]
+      execute 'normal ' .. eraseWord .. antonym
+      break
+    endif
+    let count += 1
+  endwhile
+endfunction
+
+
+nnoremap ! :call Invert(0)<CR>
+vnoremap ! :<C-u>call Invert(1)<CR>
 
 
 " Go to the next function
@@ -22,19 +106,15 @@ nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 
 
-" tabs
-nmap <leader>h :action PreviousTab<CR>
-nmap <leader>l :action NextTab<CR>
-
-" move tabs left and right
+" move tabs
+" Move current tab to the left
 nmap <Space>q :tabm-1 <CR>
 nmap <Space>p :tabm+1 <CR>
 
-
 " more convenient shortcut for go to action
-nmap <leader>a :action GotoAction<CR>
+nnoremap <leader>a :action GotoAction<CR>
 
-" Annotate with git blame
+" Annotate
 nnoremap <leader>g :action Annotate<CR>
 
 " select everything (very useful)
