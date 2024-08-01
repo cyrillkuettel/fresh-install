@@ -43,36 +43,6 @@ nmap <Space>l :action NextTab<CR>
 
 
 
-function! NavigateSplitsOrTabs()
-"not working currently.
-" idea: it would be much more pleasant if the same key could be used to navigate between tabs and eplitters
-
-" so we can always switch to the next tab with the same key
-" for example, if we are in the first tab of the splitter, and we want to go left, we have to type the switch to splitter command now
-" Goto next / previous spliter
-" Project idea: create a plugin that createes new Actionid
-
-" ConditionalJumpToPreviousTab: an action that combines 'Goto next / previous spliter'
-" based on some condition, so that we only have to type this once.
-" Logic:, if we are in the Splitter, and we are in the first tab of that Splitter, we want to
-" invoke GotoPreviousTab (jump to the left if the Splitter is on the right) so we can always use the same key
-    :action NextTab
-
-  if winnr('$') == 1 && tabpagenr('$') > 1
-    " Navigate to the next tab if there is only one window in this tab but multiple tabs exist.
-    :action NextTab<CR>
-  elseif winnr('$') > 1
-    " Navigate to the next window in this tab if there are multiple windows.
-    :action NextSplitter<CR>
-  else
-    :action NextSplitter<CR>
-  endif
-endfunction
-
-map <leader>w :call NavigateSplitsOrTabs()<CR>
-
-
-
 function! Invert(calledFromVisual)
   let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
                  \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last']
