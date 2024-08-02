@@ -31,11 +31,15 @@
 	norris = !git add -A && git commit --no-verify
 	nnorris = !git add -A && git commit --no-verify && git push
 
+	stm = !git stash push -m \"$(git show --format=%s -s). $1\"
+
     # Calls zsh function with corresonding git parameters:
     # See .zshrc for detail.
     fdiff = !zsh -ic 'git-fuzzy-diff "$@"' -
     flog = !zsh -ic 'git-fuzzy-log "$@"' -
 	lastbranches = !git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10
+
+	stm = "!f() { git stash push -m \"$(git show --format=%s -s). $*\"; }; f"
      
 [core]
     # pager = diff-so-fancy | less --tabs=4 -RFX
