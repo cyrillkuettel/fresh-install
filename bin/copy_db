@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Prompt the user for the new database name
+read -p "Enter the name for the new database: " new_db_name
+
+# Check if the new database name is empty
+if [ -z "$new_db_name" ]; then
+    echo "Error: Database name cannot be empty."
+    exit 1
+fi
+
+# Create the database
+echo "Creating new database '$new_db_name'..."
+if sudo -u postgres psql -c "CREATE DATABASE $new_db_name WITH TEMPLATE privatim;" ; then
+    echo "Database created successfully."
+else
+    echo "Error: Failed to create database '$new_db_name'."
+    exit 1
+fi
+
+# Grant privileges and set timezone
+echo "Setting privileges and timezone..."
+sudo -u postgres psql -d "$new_db_name" -c "
+GRANT ALL PRIVILEGES ON DATABASE $new_db_name TO dev;
+ALTER DATABASE $new_db_name SET timezone TO 'UTC';
+"
+
+if [ $? -eq 0 ]; then
+    echo "Database '$new_db_name' setup completed successfully."
+else
+    echo "Warning: Database created, but there was an issue setting privileges or timezone."
+fi
