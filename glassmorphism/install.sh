@@ -11,3 +11,12 @@ sudo ninja install
 
 
 sudo ln -s $(which alacritty) /usr/bin/alacritty
+
+
+
+install picom (https://github.com/yshui/picom)
+
+after installing like described in the associated readme, run:
+
+sudo mv build/src /usr/local/bin
+sudo chmod 755 /usr/local/bin/picom
