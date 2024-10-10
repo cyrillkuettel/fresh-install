@@ -38,8 +38,13 @@
     fdiff = !zsh -ic 'git-fuzzy-diff "$@"' -
     flog = !zsh -ic 'git-fuzzy-log "$@"' -
 	lastbranches = !git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10
-
+	
+	push = "!f() { branch=$(git symbolic-ref --short HEAD); upstream=$(git for-each-ref --format=\"%(upstream:short)\" refs/heads/$branch); if [ -z \"$upstream\" ]; then read -p \"Set upstream and push? (y/n): \" yn; if [ \"$yn\" = \"y\" ]; then git push --set-upstream origin $branch; else echo \"Push cancelled.\"; fi; else git push; fi; }; f"
+    # Stash with custom message
 	stm = "!f() { git stash push -m \"$(git show --format=%s -s). $*\"; }; f"
+    # Quick fix amend
+    fixup = !git add . && git commit --amend --no-edit --no-verify
+
      
 [core]
     # pager = diff-so-fancy | less --tabs=4 -RFX
