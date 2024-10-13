@@ -135,3 +135,8 @@ echo 'xmodmap ~/.Xmodmap' > ~/.xinitrc
 
 sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
 
+
+# Early oom daeomon 
+# Kill processes faster to prevent potential freezing
+# https://github.com/rfjakob/earlyoom
+
