@@ -140,3 +140,13 @@ sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
 # Kill processes faster to prevent potential freezing
 # https://github.com/rfjakob/earlyoom
 
+git clone https://github.com/rfjakob/earlyoom.git
+cd earlyoom
+make
+# need to run this manually somehow
+sed "s|:TARGET:|/usr/local/bin|g;s|:SYSCONFDIR:|/usr/local/etc|g" earlyoom.service.in > earlyoom.service
+
+sudo make install
+sudo cp /usr/local/etc/systemd/system/earlyoom.service /etc/systemd/system/
+sudo make install
+sudo systemctl enable earlyoom
