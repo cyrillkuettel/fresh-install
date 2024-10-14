@@ -143,10 +143,7 @@ sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
 git clone https://github.com/rfjakob/earlyoom.git
 cd earlyoom
 make
-# need to run this manually somehow
-sed "s|:TARGET:|/usr/local/bin|g;s|:SYSCONFDIR:|/usr/local/etc|g" earlyoom.service.in > earlyoom.service
-
 sudo make install
 sudo cp /usr/local/etc/systemd/system/earlyoom.service /etc/systemd/system/
-sudo make install
+sudo make install  # somehow needed to avoid systemd Unit file not found
 sudo systemctl enable earlyoom
