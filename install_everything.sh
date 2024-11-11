@@ -136,14 +136,19 @@ echo 'xmodmap ~/.Xmodmap' > ~/.xinitrc
 sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
 
 
-# Early oom daeomon 
-# Kill processes faster to prevent potential freezing
-# https://github.com/rfjakob/earlyoom
 
-git clone https://github.com/rfjakob/earlyoom.git
-cd earlyoom
-make
-sudo make install
-sudo cp /usr/local/etc/systemd/system/earlyoom.service /etc/systemd/system/
-sudo make install  # somehow needed to avoid systemd Unit file not found
-sudo systemctl enable earlyoom
+# install vimium from source
+git clone https://github.com/philc/vimium.git
+# build from source
+# 1. denu
+curl -fsSL https://deno.land/install.sh | sh
+
+echo 'export PATH="$HOME/.deno/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+cd vimium/ 
+rm deno.lock 2> /dev/null || true
+deno run -A ./make.js write-firefox-manifest
+# finally create the xpi file
+zip -r vimium.xpi * -x "*.git*" -x "tests/*" -x "test_harnesses/*" -x "*.md" -x "deno.*"
+# manually go to about:addons and install
+# todo: install the addon without user interaction. 
+
