@@ -7,6 +7,9 @@ set autoindent
 
 set smarttab
 
+" Almost never do I use regex in vim
+set nomagic
+
 " Mainly useful when writing .tex 
 set wrap
 
