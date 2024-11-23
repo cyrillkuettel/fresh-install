@@ -141,6 +141,8 @@ alias fff='echo $(fzf) | xsel -b'
 
 alias fof='xdg-open $(fzf)'
 
+alias dolphin='dolphin & disown'
+
 alias o='xdg-open'
 alias fresh='cd ~/fresh-install && git pull'
 alias yk='xsel -i -b'

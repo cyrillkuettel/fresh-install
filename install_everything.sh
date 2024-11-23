@@ -152,3 +152,9 @@ zip -r vimium.xpi * -x "*.git*" -x "tests/*" -x "test_harnesses/*" -x "*.md" -x 
 # manually go to about:addons and install
 # todo: install the addon without user interaction. 
 
+# dolphin file manager
+sudo add-apt-repository universe
+sudo apt update 
+sudo apt install dolphin 
+# set it default:
+xdg-mime default org.kde.dolphin.desktop inode/directory
