@@ -4,7 +4,10 @@
 # Installs the dev edition of firefox, potentially removes previous version 
 
 cd ~/Downloads
-curl --location "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US" | tar --extract --verbose --preserve-permissions --bzip2
+
+curl --location -o firefox.tar.gz "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US"
+
+tar --extract --verbose --preserve-permissions -f firefox.tar.gz --use-compress-program=xz
 
 INSTALL_DIR="/opt/firefox"
 
