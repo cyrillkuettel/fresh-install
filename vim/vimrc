@@ -161,6 +161,33 @@ if empty($NO_GOYO)
     autocmd BufWinEnter *.md,*.tex :call StartGoyo()
 endif
 
+function! SurroundWithBackticks()
+    " Store the current cursor position
+    let l:save_pos = getpos(".")
+    
+    " Get the current word boundaries
+    normal! viw
+    let l:start = getpos("'<")
+    let l:end = getpos("'>")
+    
+    " Return to normal mode
+    normal! v
+    
+    " Insert backticks around the word
+    call setpos('.', l:end)
+    execute "normal! a`"
+    call setpos('.', l:start)
+    execute "normal! i`"
+    
+    " Restore cursor position (adjusted for inserted backticks)
+    let l:save_pos[2] += 1  " Adjust column position
+    call setpos('.', l:save_pos)
+endfunction
+
+" Map it to a key combination (example: <Leader>`)
+nnoremap <Leader>m :call SurroundWithBackticks()<CR>
+
+
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -179,6 +206,7 @@ Plug 'lervag/vimtex'
     let g:vimtex_quickfix_mode=0
 
 call plug#end()
+
 " Search and open file
 noremap <leader>o :call fzf#run({'source': 'fd --type f -e tex -e md -e bib -e log', 'sink': 'e', 'window': '30vnew'})<CR><CR>
 
