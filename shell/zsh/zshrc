@@ -104,6 +104,19 @@ alias 'fresh'='cd ~/fresh-install'
 alias 'black'='black --line-length=79 --skip-string-normalization'
 alias fcf='test -d "$(fzf)" || : $_:h; cd -- $_'
 
+yk() {
+    if [ -t 0 ]; then  # Check if stdin is a terminal
+        if [ $# -eq 0 ]; then
+            echo "Usage: yk <file> or pipe content to yk"
+            return 1
+        fi
+        cat "$1" | xsel -i -b
+    else
+        # Input is from a pipe
+        xsel -i -b
+    fi
+}
+
 function fyf() {
   local selected_file
   
@@ -145,9 +158,7 @@ alias dolphin='dolphin & disown'
 
 alias o='xdg-open'
 alias fresh='cd ~/fresh-install && git pull'
-alias yk='xsel -i -b'
 alias upup='sudo apt-get update && sudo apt-get upgrade'
-alias 'yk'='xsel -i -b'
 alias 'fresh'='cd ~/fresh-install && git pull'
 
 # cd "$(command)" to jump to result of original path of soft link Ω(Φ(X))
