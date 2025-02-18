@@ -3,17 +3,42 @@
 #
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
-#
-
 # i3 config file (v4)
+
+# This fixes the title bars with 4k display
+for_window [class=".*"] title_format "<span size='12000'>%title</span>"
+
+# gaps + window related
+
+# gaps outer 2
+# gaps inner 15
+
+default_floating_border pixel 0
+default_border pixel 0
+
+# disable window titlebars
+for_window [class="^.*"] border pixel 0
+
+exec --no-startup-id bash -c 'picom --config $HOME/.config/picom/picom.conf --experimental-backends &'
+
+# convenient way to restart (If you really need experiemntal backends)
+# bindsym $mod+Shift+p exec --no-startup-id "pkill picom; picom --config $HOME/.config/picom/picom.conf --experimental-backends &"
+
+
+# same restart but without experimental backends 
+# trying to remove flickering
+bindsym $mod+Shift+p exec --no-startup-id "pkill picom; picom --config $HOME/.config/picom/picom.conf &"
+
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
 
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
+
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,6 +59,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# try this
+# todo remove this not working I think
+exec --no-startup-id /bin/bash -c 'eval $(ssh-agent -s); ssh-add ~/.ssh/id_ed25519'
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -46,21 +75,41 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec /home/cyrill/.cargo/bin/alacritty 
+ # bindsym F4 exec i3-sensible-terminal
 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
+# focus the floating window (if it exists)
+bindsym $mod+Shift+f focus floating
+
 
 # start rofi (a program launcher)
 bindsym $mod+p exec "rofi -show drun -show-icons -modi drun,run"
 
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id dmenu_run
+
+
+exec_always --no-startup-id python3 /home/cyrill/.local/bin/custom/global_shift_to_arrow_shortcut.py
+
+
+# A more modern dmenu replacement is rofi:
+# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+# There also is i3-dmenu-desktop which only displays applications shipping a
+# .desktop file. It is a wrapper around dmenu, so you need that installed.
+# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+
 # F1 as convenient shortcut for SUPER + 1
+# hm i don't really use this
 bindcode 67 exec --no-startup-id i3-msg 'workspace number 1'
 # F2 as convenient shortcut for SUPER + 2
 bindcode 68 exec --no-startup-id i3-msg 'workspace number 2'
+
+
 
 # change focus
 bindsym $mod+j focus left
@@ -95,13 +144,9 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# focus the floating window (if it exists)
-bindsym $mod+Shift+f focus floating
-
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -110,12 +155,22 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
+# work setup
+# primary
+set $monitor2 "HDMI-1" 
+# monitor right side 
+set $monitor1 "DP-2"
 
 
-set $monitor1 "DP-1"
-set $monitor2 "DP-2"
+# home setup 
+# set $monitor1 "HDMI-1" 
+# monitor right side 
+# set $monitor2 "eDP-2"
+
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -126,24 +181,24 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
+
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# 
+# main monitor 
 workspace $ws1 output $monitor1 
 workspace $ws2 output $monitor1 
 workspace $ws3 output $monitor1 
 workspace $ws4 output $monitor1 
 workspace $ws5 output $monitor1 
-workspace $ws6 output $monitor1 
-workspace $ws7 output $monitor1 
 
-
+# right (vertical) monitor
+workspace $ws6 output $monitor2
+workspace $ws7 output $monitor2 
 workspace $ws8 output $monitor2
-# For some reason, this works not if I set explicit values for 2nd monitor..
-#  workspace $ws8 output $monitor2
-
+workspace $ws9 output $monitor2
+workspace $ws10 output $monitor2
 
 
 # switch to workspace
@@ -171,8 +226,6 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
-
-assign [class="jetbrains-clion"] $ws1
 assign [class="jetbrains-pycharm"] $ws1
 assign [class="firefox"] $ws2
 
@@ -216,19 +269,39 @@ bindsym $mod+r mode "resize"
 
 # https://i3wm.org/docs/userguide.html#_scratchpad
 # Scratchpad stuff
-bindsym $mod+Shift+minus move scratchpad
 # Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym F4 scratchpad show
+bindsym F4 scratchpad show 
 
 # Switch focus between containers in the same window
 bindsym $mod+h focus left
 bindsym $mod+l focus right
 
+# Use vim bindings to switch between workspaces
+# bindsym $mod+h tab prev
+# bindsym $mod+l tab next
+
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+
+#interactive screenshot by pressing printscreen
+bindsym Print exec scrot -s $HOME/Pictures/scrot/`date +%Y-%m-%d_%H:%M:%S`.png
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
 }
+
+
+# focus_follows_mouse no
+
+# https://askubuntu.com/questions/1287123/i3-gnome-keyring-issue
+# I want to have ssh up and running
+# exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+
+
