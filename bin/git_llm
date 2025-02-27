@@ -5,11 +5,21 @@
 # This script finds the last commit by you before another user's commit (BASE),
 # then generates a diff between BASE and your current state.
 # It excludes files containing 'assets', .po files, and files in tests/.
-# The output is saved to a single file for use with LLMs.
+# The output is saved to a file in /tmp and can be copied to clipboard.
+#
+# Usage: ./script.sh [--names-only]
+#   --names-only: Show only file names that changed, not their content
 # -----------------------------------------------------------------------
 
 # Define your username here
 YOUR_USERNAME="$(git config user.name)"
+
+# Check for names-only flag
+NAMES_ONLY=false
+if [[ "$1" == "--names-only" ]]; then
+  NAMES_ONLY=true
+  echo "Running in names-only mode"
+fi
 
 # Function to find the BASE commit (last commit by you before someone else's commit)
 find_base_commit() {
@@ -49,49 +59,46 @@ fi
 
 echo "Found BASE commit: $BASE"
 
-# Create a temporary file for the diff
-TEMP_FILE=$(mktemp)
+# Create output filename in /tmp
+OUTPUT_FILE="/tmp/git_changes_$(date +%s).diff"
 
-# Generate the diff between BASE and current state
-# This gets all changes excluding:
-# - files containing 'assets' in the path
-# - all .po files
-# - any files in tests/ directories
-git diff $BASE -- . ':(exclude)*assets*' ':(exclude)*.po' ':(exclude)tests/*' > "$TEMP_FILE"
+# Generate the diff between BASE and current state with appropriate flags
+if [[ "$NAMES_ONLY" == true ]]; then
+  # Only show file names that changed
+  git diff --name-only $BASE -- . ':(exclude)*assets*' ':(exclude)*.po' ':(exclude)tests/*' > "$OUTPUT_FILE"
+else
+  # Show full diff content
+  git diff $BASE -- . ':(exclude)*assets*' ':(exclude)*.po' ':(exclude)tests/*' > "$OUTPUT_FILE"
+fi
 
 # Output the size of the diff
-DIFF_SIZE=$(wc -l < "$TEMP_FILE")
+DIFF_SIZE=$(wc -l < "$OUTPUT_FILE")
 echo "Diff contains $DIFF_SIZE lines"
+echo "Diff saved to $OUTPUT_FILE"
 
+# Copy to clipboard (Linux only)
+if command -v xclip > /dev/null; then
+  cat "$OUTPUT_FILE" | xclip -selection clipboard
+  echo "Copied to clipboard using xclip"
+else
+  echo "xclip not found. Please install xclip for clipboard support: sudo apt-get install xclip"
+fi
 
-# Ask if user wants to copy to clipboard
-read -p "Copy diff to clipboard? (y/n): " COPY_TO_CLIPBOARD
-if [[ $COPY_TO_CLIPBOARD =~ ^[Yy]$ ]]; then
-  # Try different clipboard commands based on OS
-  if command -v pbcopy > /dev/null; then
-    # macOS
-    cat "$OUTPUT_FILE" | pbcopy
-    echo "Copied to clipboard using pbcopy"
-  elif command -v xclip > /dev/null; then
-    # Linux with xclip
-    cat "$OUTPUT_FILE" | xclip -selection clipboard
-    echo "Copied to clipboard using xclip"
-  elif command -v clip > /dev/null; then
-    # Windows
-    cat "$OUTPUT_FILE" | clip
-    echo "Copied to clipboard using clip"
-  else
-    echo "No clipboard command found. Please install xclip (Linux), or use pbcopy (macOS) or clip (Windows)"
+# Run diff-so-fancy if available
+if [[ "$NAMES_ONLY" == false ]] && command -v diff-so-fancy > /dev/null; then
+  echo "Running diff-so-fancy on $OUTPUT_FILE"
+  # Use less with options to make it stay in the pager
+  cat "$OUTPUT_FILE" | diff-so-fancy | less -RFX
+  echo "Fancy diff viewed with less. Returning to script..."
+else
+  # For names-only mode or if diff-so-fancy isn't available, just show the file
+  if [[ "$NAMES_ONLY" == true ]]; then
+    cat "$OUTPUT_FILE"
+  elif ! command -v diff-so-fancy > /dev/null; then
+    echo "diff-so-fancy not found. Install with: npm install -g diff-so-fancy"
   fi
 fi
 
-
-# Ask user for output filename
-read -p "Enter output filename (default: git_changes.diff): " OUTPUT_FILE
-OUTPUT_FILE=${OUTPUT_FILE:-git_changes.diff}
-
-# Copy to the output file
-cp "$TEMP_FILE" "$OUTPUT_FILE"
 
 rm "$TEMP_FILE"
 
