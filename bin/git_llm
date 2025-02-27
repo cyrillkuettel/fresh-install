@@ -1,0 +1,99 @@
+#!/bin/bash
+# -----------------------------------------------------------------------
+# Git Diff For LLM
+# 
+# This script finds the last commit by you before another user's commit (BASE),
+# then generates a diff between BASE and your current state.
+# It excludes files containing 'assets', .po files, and files in tests/.
+# The output is saved to a single file for use with LLMs.
+# -----------------------------------------------------------------------
+
+# Define your username here
+YOUR_USERNAME="$(git config user.name)"
+
+# Function to find the BASE commit (last commit by you before someone else's commit)
+find_base_commit() {
+  # Get the current branch
+  current_branch=$(git symbolic-ref --short HEAD)
+  
+  # Get all commits on this branch
+  commits=$(git log --format="%H:%an" $current_branch)
+  
+  # Loop through commits to find BASE
+  previous_author=""
+  previous_commit=""
+  
+  while IFS=: read -r commit author; do
+    if [[ "$author" != "$YOUR_USERNAME" && "$previous_author" == "$YOUR_USERNAME" ]]; then
+      # We found a commit by someone else, and the previous one was by you
+      echo $previous_commit
+      return 0
+    fi
+    
+    previous_author="$author"
+    previous_commit="$commit"
+  done <<< "$commits"
+  
+  # If we get here, we didn't find a suitable BASE commit
+  echo "Couldn't find a commit by you followed by someone else's commit" >&2
+  return 1
+}
+
+# Get the BASE commit
+BASE=$(find_base_commit)
+
+if [[ $? -ne 0 ]]; then
+  echo "Error finding BASE commit"
+  exit 1
+fi
+
+echo "Found BASE commit: $BASE"
+
+# Create a temporary file for the diff
+TEMP_FILE=$(mktemp)
+
+# Generate the diff between BASE and current state
+# This gets all changes excluding:
+# - files containing 'assets' in the path
+# - all .po files
+# - any files in tests/ directories
+git diff $BASE -- . ':(exclude)*assets*' ':(exclude)*.po' ':(exclude)tests/*' > "$TEMP_FILE"
+
+# Output the size of the diff
+DIFF_SIZE=$(wc -l < "$TEMP_FILE")
+echo "Diff contains $DIFF_SIZE lines"
+
+
+# Ask if user wants to copy to clipboard
+read -p "Copy diff to clipboard? (y/n): " COPY_TO_CLIPBOARD
+if [[ $COPY_TO_CLIPBOARD =~ ^[Yy]$ ]]; then
+  # Try different clipboard commands based on OS
+  if command -v pbcopy > /dev/null; then
+    # macOS
+    cat "$OUTPUT_FILE" | pbcopy
+    echo "Copied to clipboard using pbcopy"
+  elif command -v xclip > /dev/null; then
+    # Linux with xclip
+    cat "$OUTPUT_FILE" | xclip -selection clipboard
+    echo "Copied to clipboard using xclip"
+  elif command -v clip > /dev/null; then
+    # Windows
+    cat "$OUTPUT_FILE" | clip
+    echo "Copied to clipboard using clip"
+  else
+    echo "No clipboard command found. Please install xclip (Linux), or use pbcopy (macOS) or clip (Windows)"
+  fi
+fi
+
+
+# Ask user for output filename
+read -p "Enter output filename (default: git_changes.diff): " OUTPUT_FILE
+OUTPUT_FILE=${OUTPUT_FILE:-git_changes.diff}
+
+# Copy to the output file
+cp "$TEMP_FILE" "$OUTPUT_FILE"
+
+rm "$TEMP_FILE"
+
+echo "Diff saved to $OUTPUT_FILE"
+echo "You can now use this file as input for your LLM."
