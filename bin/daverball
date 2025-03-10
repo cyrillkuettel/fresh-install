@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd /home/cyrill/Development/pygithub/
+source /home/cyrill/Development/pygithub/venv/bin/activate
+python /home/cyrill//Development/pygithub/main.py
+deactivate
+

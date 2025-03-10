@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+
+# Run the helper script and capture its output and exit code
+output=$(bash /home/cyrill/.screenlayout/default_work.sh 2>&1)
+exit_code=$?
+
+# Check the exit code
+if [ $exit_code -eq 0 ]; then
+  echo "Script executed successfully."
+else
+  echo "Script encountered an error. Exit code: $exit_code"
+fi
+
+# Display the captured output
+echo "$output"

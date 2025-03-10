@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Switch to the postgres user and execute the following commands
+sudo -i -u postgres psql <<EOF
+-- Drop the database if it exists
+DROP DATABASE IF EXISTS privatim;
+
+-- Create the database
+CREATE DATABASE privatim;
+EOF
+/home/cyrill/privatim/venv/bin/add_user --email admin@example.org --password test  --first_name Foo --last_name Bar /home/cyrill/privatim/development.ini
+
