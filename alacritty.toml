@@ -1,0 +1,41 @@
+# What i had previously
+# [colors.primary]
+# background = "#eeeeee"  # Dark grayish blue background
+# foreground = "#ffffff"  # Light grayish blue foreground
+
+
+[font]
+size = 15.0
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular Mono"
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Regular"  # Since FiraCode may not have a dedicated italic variant
+
+[font.bold_italic]
+family = "FiraCode Nerd Font"
+style = "Bold"  # Since FiraCode may not have a dedicated bold italic variant
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window.padding]
+# x = 20
+# y = 20
+
+
+# [window]
+# opacity = 0.1
+
+# [debug]
+# log_level = "Off"
+# https://alacritty.org/config-alacritty.html
+# [debug]
+# log_level = "Off"

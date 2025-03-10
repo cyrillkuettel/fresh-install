@@ -273,7 +273,12 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-bindsym F4 scratchpad show 
+# bindsym F4 scratchpad show 
+
+# bindsym F4 exec --no-startup-id alacritty -e nvim
+bindsym F4 exec --no-startup-id alacritty -e zsh -i -c "source ~/.zshrc && aider --read ~/.config/nvim/init.lua"
+bindsym F5 exec --no-startup-id alacritty -e nvim ~/.config/nvim/init.lua
+
 
 # Switch focus between containers in the same window
 bindsym $mod+h focus left
