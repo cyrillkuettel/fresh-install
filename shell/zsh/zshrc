@@ -119,7 +119,7 @@ yk() {
 
 function fyf() {
   local selected_file
-  selected_file=$(fzf --exclude="eggs/*" --exclude="venv/*")
+  selected_file=$(fd --type f --exclude 'eggs' --exclude 'venv' | fzf)
   if [[ -n "$selected_file" && "$selected_file" != $'\x04' ]]; then
     nvim "$selected_file"
   fi
