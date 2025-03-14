@@ -14,7 +14,9 @@ sudo ln -s $(which alacritty) /usr/bin/alacritty
 
 
 
-install picom (https://github.com/yshui/picom)
+git clone https://github.com/yshui/picom
+git checkout tags/v12
+
 
 after installing like described in the associated readme, run:
 
