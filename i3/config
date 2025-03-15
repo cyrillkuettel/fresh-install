@@ -70,7 +70,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec /home/cyrill/.cargo/bin/alacritty 
- # bindsym F4 exec i3-sensible-terminal
+
 
 
 # kill focused window
@@ -268,8 +268,13 @@ bindsym $mod+r mode "resize"
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-# Show the first scratchpad window
-bindsym F4 scratchpad show 
+# old idea: Show the first scratchpad window
+# bindsym F4 scratchpad show 
+
+# new idea:
+# F4 to toggle dedicated scratchpad terminal
+for_window [class="scratchpad_term"] move scratchpad
+bindsym F4 exec --no-startup-id "i3-msg '[class=scratchpad_term] scratchpad show' || alacritty --class scratchpad_term &"
 
 # bindsym F4 exec --no-startup-id alacritty -e nvim
 # bindsym F4 exec --no-startup-id alacritty -e zsh -i -c "source ~/.zshrc && aider --read ~/.config/nvim/init.lua"
