@@ -8,10 +8,11 @@
 # This fixes the title bars with 4k display
 for_window [class=".*"] title_format "<span size='12000'>%title</span>"
 
-# gaps + window related
+for_window [class="Chromium" title="*linear.app*"] floating enable, resize set 1500 1000, move position center, border normal 10
 
-# gaps outer 2
-# gaps inner 15
+# gaps + window related
+gaps outer 2
+gaps inner 15
 
 default_floating_border pixel 0
 default_border pixel 0
@@ -19,18 +20,12 @@ default_border pixel 0
 # disable window titlebars
 for_window [class="^.*"] border pixel 0
 
+for_window [class="Chromium"] floating enable, resize set 1500 1000, move position center
+
 exec --no-startup-id bash -c 'picom --config $HOME/.config/picom/picom.conf --experimental-backends &'
 
 # convenient way to restart (If you really need experiemntal backends)
-# bindsym $mod+Shift+p exec --no-startup-id "pkill picom; picom --config $HOME/.config/picom/picom.conf --experimental-backends &"
-
-
-# same restart but without experimental backends 
-# trying to remove flickering
-bindsym $mod+Shift+p exec --no-startup-id "pkill picom; picom --config $HOME/.config/picom/picom.conf &"
-
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+bindsym $mod+q exec --no-startup-id "pkill picom; picom --config $HOME/.config/picom/picom.conf --experimental-backends &"
 
 set $mod Mod4
 
@@ -228,6 +223,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 assign [class="jetbrains-pycharm"] $ws1
 assign [class="firefox"] $ws2
+assign [class=Chromium"] $ws8
 
 
 # reload the configuration file
@@ -273,10 +269,10 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-# bindsym F4 scratchpad show 
+bindsym F4 scratchpad show 
 
 # bindsym F4 exec --no-startup-id alacritty -e nvim
-bindsym F4 exec --no-startup-id alacritty -e zsh -i -c "source ~/.zshrc && aider --read ~/.config/nvim/init.lua"
+# bindsym F4 exec --no-startup-id alacritty -e zsh -i -c "source ~/.zshrc && aider --read ~/.config/nvim/init.lua"
 bindsym F5 exec --no-startup-id alacritty -e nvim ~/.config/nvim/init.lua
 
 
