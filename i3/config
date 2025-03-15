@@ -100,9 +100,9 @@ exec_always --no-startup-id python3 /home/cyrill/.local/bin/custom/global_shift_
 
 # F1 as convenient shortcut for SUPER + 1
 # hm i don't really use this
-bindcode 67 exec --no-startup-id i3-msg 'workspace number 1'
+# bindcode 67 exec --no-startup-id i3-msg 'workspace number 1'
 # F2 as convenient shortcut for SUPER + 2
-bindcode 68 exec --no-startup-id i3-msg 'workspace number 2'
+# bindcode 68 exec --no-startup-id i3-msg 'workspace number 2'
 
 
 
