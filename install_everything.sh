@@ -65,21 +65,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 ## diff-so-fancy
 # https://github.com/so-fancy/diff-so-fancy
 mkdir -p ~/zsh-plugins
-git clone https://github.com/so-fancy/diff-so-fancy.git ~/zsh-plugins
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-git config --global interactive.diffFilter "diff-so-fancy --patch"
-
-git config --global color.diff-highlight.oldNormal    "red bold"
-git config --global color.diff-highlight.oldHighlight "red bold 52"
-git config --global color.diff-highlight.newNormal    "green bold"
-git config --global color.diff-highlight.newHighlight "green bold 22"
-git config --global color.diff.meta       "11"
-git config --global color.diff.frag       "magenta bold"
-git config --global color.diff.func       "146 bold"
-git config --global color.diff.commit     "yellow bold"
-git config --global color.diff.old        "red bold"
-git config --global color.diff.new        "green bold"
-git config --global color.diff.whitespace "red reverse"
+cargo install git-delta
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global merge.conflictStyle zdiff3
 
 # Add default environment variables
 cp ~/fresh-install/shell/bash_profile ~/.bash_profile
