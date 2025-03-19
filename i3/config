@@ -11,8 +11,8 @@ for_window [class=".*"] title_format "<span size='12000'>%title</span>"
 for_window [class="Chromium" title="*linear.app*"] floating enable, resize set 1500 1000, move position center, border normal 10
 
 # gaps + window related
-gaps outer 2
-gaps inner 15
+# gaps outer 2
+# gaps inner 15
 
 default_floating_border pixel 0
 default_border pixel 0
@@ -48,7 +48,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -278,7 +278,7 @@ bindsym F4 exec --no-startup-id "i3-msg '[class=scratchpad_term] scratchpad show
 
 # bindsym F4 exec --no-startup-id alacritty -e nvim
 # bindsym F4 exec --no-startup-id alacritty -e zsh -i -c "source ~/.zshrc && aider --read ~/.config/nvim/init.lua"
-bindsym F5 exec --no-startup-id alacritty -e nvim ~/.config/nvim/init.lua
+bindsym F1 exec --no-startup-id alacritty -e nvim ~/.config/nvim/init.lua
 
 
 # Switch focus between containers in the same window
