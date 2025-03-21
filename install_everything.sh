@@ -148,3 +148,8 @@ sudo apt update
 sudo apt install dolphin 
 # set it default:
 xdg-mime default org.kde.dolphin.desktop inode/directory
+
+
+# gnome enable night light
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+
