@@ -126,18 +126,6 @@ function fyf() {
 }
 
 
-# Beware: cave man approach to merge conflicts...
-# This however works like a charm if the other branch differs by one commit only
-function resolve_merge() {
-  git reset HEAD~
-  git add -A
-  git stash 
-  git pull
-  git stash pop
-  git add -A
-  git commit
-}
-
 # copy result path of fzf to clipboard
 alias fff='echo $(fzf) | xsel -b'
 
