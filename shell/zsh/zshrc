@@ -146,7 +146,6 @@ alias fof='xdg-open $(fzf)'
 alias dolphin='dolphin & disown'
 
 alias o='xdg-open'
-alias fresh='cd ~/fresh-install && git pull'
 alias upup='sudo apt-get update && sudo apt-get upgrade'
 alias 'fresh'='cd ~/fresh-install && git pull'
 
@@ -223,7 +222,7 @@ EOF
 
 # adb: this is meant to be run on the device
 # putting it here for reference
-alias adb_set_proxy="adb shell settings put global http_proxy $(ip -o -4 addr show ens33 | awk '{print $4}' | sed 's/\/.*//g'):8080"
+# alias adb_set_proxy="adb shell settings put global http_proxy $(ip -o -4 addr show ens33 | awk '{print $4}' | sed 's/\/.*//g'):8080"
 
 alias adb_unset_proxy="adb shell settings put global http_proxy  :0"
  
